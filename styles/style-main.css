@@ -1,44 +1,11 @@
 @charset "UTF-8";
-/*----------------------------------------------------
-@File: Default Styles
-
-This file contains the styling for the actual template, this
-is the file you need to edit to change the look of the
-template.
----------------------------------------------------- */
-/*=====================================================================
-@Template Name: Docy
-@Version: 1.1.2
-
-@Default Styles
-
-Table of Content:
-01/ Variables
-02/ predefine
-03/ header
-04/ banner
-05/ about
-06/ portfolio
-07/ team
-08/ blog
-09/ service
-10/ blog
-11/ contact 
-12/ footer 
-
-
-=====================================================================*/
-/*----------------------------------------------------*/
-/*font Variables*/
-/**=== Functions ===**/
+ 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&amp;display=swap");
 .col-md-offset-right-1,
 .col-lg-offset-right-1 {
   margin-right: 8.33333333%;
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 html {
   height: 100%;
 }
@@ -112,10 +79,7 @@ video {
 table tr td p:last-child {
   margin-bottom: 0;
 }
-
-/* pre[class*=language-] > code { */
-  /* border-left: 5px solid rgba(76, 76, 241, 0.8); */
-/* } */
+ 
 
 .pt_100 {
   padding-top: 100px;
@@ -124,10 +88,9 @@ table tr td p:last-child {
 .pb_100 {
   padding-bottom: 100px;
 }
-
-/** === Scrollbar === **/
+ 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   height: 8px;
 }
 
@@ -139,8 +102,7 @@ table tr td p:last-child {
   background: #999999;
   border-radius: 30px;
 }
-
-/** === Predefined Global Classes === **/
+ 
 .h1 {
   font-size: 50px;
 }
@@ -195,8 +157,7 @@ table tr td p:last-child {
 button:focus {
   outline: none;
 }
-
-/** === Container === **/
+ 
 .body_wrapper {
   position: relative;
   background: #fff;
@@ -275,8 +236,7 @@ button:focus {
 .mt-40 {
   margin-top: 40px;
 }
-
-/** === List style === **/
+ 
 ul.list-style {
   margin-bottom: 2rem;
 }
@@ -289,8 +249,7 @@ ul.list-style li {
 ul.list-style li:last-child {
   margin-bottom: 0;
 }
-
-/** === Key === **/
+ 
 .key,
 kbd {
   line-height: 0.95rem;
@@ -323,8 +282,7 @@ p kbd {
   background: #fff;
   border: 1px solid #ddd;
 }
-
-/** ===== section title scss ====== **/
+ 
 .section_title {
   margin-bottom: 56px;
 }
@@ -373,8 +331,7 @@ p kbd {
   font-size: 24px;
   line-height: 26px;
 }
-
-/*===== section title scss ======*/
+ 
 .bg_color {
   background: #fafcfd;
 }
@@ -396,8 +353,7 @@ p kbd {
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-sizing: content-box;
 }
-
-/** === Back to Top Button === **/
+ 
 #back-to-top {
   display: inline-block;
   background-color: rgba(220, 220, 220, 0.8);
@@ -464,9 +420,7 @@ p kbd {
 .visible {
   opacity: 1 !important;
 }
-
-/* Title Area css
-============================================================================================ */
+ 
 .main_title {
   margin-bottom: 60px;
 }
@@ -479,11 +433,7 @@ p kbd {
   margin-bottom: 0;
   margin-top: 12px;
 }
-
-/* End Title Area css
-============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 .action_btn {
   font-size: 16px;
   font-weight: 400;
@@ -662,9 +612,7 @@ p kbd {
   top: 30px;
   transform: rotate(45deg);
 }
-
-/* Home Advanced Search Area css
-============================================================================================ */
+ 
 .main_btn {
   background: #4c4cf1;
   color: #fff;
@@ -803,11 +751,7 @@ p kbd {
   color: #4c4cf1;
 }
 
-/* Home Advanced Search Area css
-  ============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*================= Top header area css ===============*/
+ 
 .header_top {
   background: #192341;
   color: #8c93a8;
@@ -872,8 +816,7 @@ p kbd {
 .header_area.m_menu_two .navbar .navbar-nav > li .dropdown-menu li:hover a:before, .header_area.m_menu_two .navbar .navbar-nav > li .dropdown-menu li.active a:before {
   background: #4c4cf1;
 }
-
-/*================= header area css ===============*/
+ 
 .navbar {
   border: 0;
   border-radius: 0;
@@ -1411,9 +1354,7 @@ p kbd {
 .mCSB_inside > .mCSB_container {
   margin-right: 0;
 }
-
-/*================= header area css ===============*/
-/*=========== dk_menu css ===========*/
+ 
 .menu_two {
   box-shadow: 0 4px 10px 0 rgba(76, 76, 241, 0.06);
   z-index: 10;
@@ -1452,8 +1393,7 @@ p kbd {
 .mobile_dropdown_icon {
   display: none;
 }
-
-/*=========== dk_menu css ===========*/
+ 
 @media (max-width: 991px) {
   .display_none {
     display: none;
@@ -1512,9 +1452,7 @@ p kbd {
 .mobile_main_menu.navbar_fixed .nav_btn:hover {
   border-color: #4c4cf1;
 }
-
-/*============ Start menu_purple css ==============*/
-/*============ menu_purple css ==============*/
+ 
 .menu_purple .menu > .nav-item > .nav-link {
   position: relative;
 }
@@ -1555,9 +1493,7 @@ p kbd {
   color: #fff;
   border-color: #4c4cf1;
 }
-
-/*============ End menu_purple css ==============*/
-/*=========== menu_four css ===========*/
+ 
 .sticky_menu .menu_one {
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
@@ -1628,8 +1564,7 @@ p kbd {
 .menu_two .menu > .nav-item.submenu.mega_menu .dropdown-menu {
   border-top: 1px solid #e6eeef;
 }
-
-/*=========== menu_four css ===========*/
+ 
 .nav_btn_two {
   border-color: rgba(76, 76, 241, 0.3);
   background: #f1f8fc;
@@ -1860,8 +1795,7 @@ p kbd {
   width: 0%;
   transition-delay: 0.2s;
 }
-
-/*=========== side_menu css ===========*/
+ 
 .side_menu {
   width: 300px;
   height: 100vh;
@@ -1963,10 +1897,7 @@ p kbd {
 .navbar:not(.navbar_fixed) .menu > .nav-item.submenu .dropdown-menu {
   margin-top: -15px;
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*=========== doc_banner_area_one css ============*/
+ 
 .doc_banner_area_one {
   height: 750px;
   display: flex;
@@ -2177,9 +2108,7 @@ p kbd {
   border-bottom-left-radius: 0;
   transition: all 0.4s linear;
 }
-
-/*=========== doc_banner_area_one css ============*/
-/*=========== Start doc_banner_area_two css ============*/
+ 
 .doc_banner_area_two {
   height: 650px;
   background: #daf6fc;
@@ -2293,9 +2222,7 @@ p kbd {
   bottom: 0;
   z-index: -1;
 }
-
-/*=========== End doc_banner_area_two css ============*/
-/*=========== Start Banner Support ============*/
+ 
 .Docy-banner-support {
   height: 945px;
   background-image: linear-gradient(30deg, #feefec 0%, #f5fdff 100%);
@@ -2657,9 +2584,7 @@ p kbd {
   right: 65px;
   bottom: 160px;
 }
-
-/*=========== End Banner Support ============*/
-/*=========== Start breadcrumb_area css ============*/
+ 
 .breadcrumb_area {
   background-image: linear-gradient(60deg, #4c4cf1 0%, #1d2746 100%);
   padding: 190px 0 95px;
@@ -2753,8 +2678,7 @@ p kbd {
   height: 100%;
 }
 
-/*=========== End breadcrumb_area css ============*/
-/*=========== Start breadcrumb_area_two css ============*/
+ 
 .breadcrumb_area_two {
   background: #edfbfe;
   padding: 150px 0 60px;
@@ -2804,9 +2728,7 @@ p kbd {
 .breadcrumb_content .single_post_author .text .c_blue {
   color: #2a74fd;
 }
-
-/*=========== End breadcrumb_area_two css ============*/
-/*=========== Start breadcrumb_area_three css ============*/
+ 
 .breadcrumb_area_three {
   background: #f8fafd;
   padding: 157px 0 70px;
@@ -2847,9 +2769,7 @@ p kbd {
 .breadcrumb_text p {
   margin-bottom: 0;
 }
-
-/*=========== End breadcrumb_area_three css ============*/
-/*=========== Start page_breadcrumb css ============*/
+ 
 .page_breadcrumb {
   background: #edefec;
   padding: 12px 0;
@@ -2921,10 +2841,7 @@ p kbd {
 .breadcrumb_area_four {
   overflow: hidden;
 }
-
-/*=========== End page_breadcrumb css ============*/
-/* Home Doc Banner Two Area css
-============================================================================================ */
+ 
 .doc_banner_area_dip {
   background: #002454;
   text-align: center;
@@ -3209,11 +3126,7 @@ p kbd {
   background: #fff;
   color: #002454;
 }
-
-/* End Home Doc Banner Two Area css
-============================================================================================ */
-/* Forum Banner Area css
-============================================================================================ */
+ 
 .doc_banner_area.search-banner-light {
   background-color: #f3f3f3;
   padding-top: 145px;
@@ -3363,11 +3276,7 @@ p kbd {
   padding-right: 7px;
   font-size: 12px;
 }
-
-/* End Forum Banner Area css
-============================================================================================ */
-/* Video Breadcrumb Area css
-============================================================================================ */
+ 
 .video_breadcrumb_area {
   background: linear-gradient(90deg, #fff4e6 0%, #fffbf5 100%);
 }
@@ -3415,10 +3324,7 @@ p kbd {
   display: none;
 }
 
-/ 
-/*=============== doc_features_area_one css ===========*/
-/* Header Feature Area css
-============================================================================================ */
+ 
 .h_feature_area .h_feature_box {
   max-width: 968px;
   margin: auto;
@@ -3465,11 +3371,7 @@ p kbd {
 .h_feature_item:hover h4 {
   color: #4c4cf1;
 }
-
-/* End Header Feature Area css
-  ============================================================================================ */
-/* Solution Area css
-  ============================================================================================ */
+ 
 .solution_inner .col-lg-6:last-child .solution_item {
   background: #e8f9fc;
 }
@@ -3495,11 +3397,7 @@ p kbd {
   margin-top: 17px;
   display: inline-block;
 }
-
-/* End Solution Area css
-  ============================================================================================ */
-/* Topic List Area css
-  ============================================================================================ */
+ 
 .topic_list_inner {
   margin-bottom: -30px;
 }
@@ -3555,11 +3453,7 @@ p kbd {
   box-shadow: 0 16px 40px 0 rgba(10, 50, 102, 0.1);
   border-color: #fff;
 }
-
-/* End Topic List Area css
-  ============================================================================================ */
-/* Question List Area css
-  ============================================================================================ */
+ 
 .question_menu h3 {
   color: #1d2746;
   font-size: 18px;
@@ -3610,11 +3504,7 @@ p kbd {
 .question_list .ques_item:nth-child(even) {
   background: #fff;
 }
-
-/* End Question List Area css
-  ============================================================================================ */
-/* Header Tabs Area css
-  ============================================================================================ */
+ 
 body.remove .header_tabs_area.tab_fixed .header_tab_items {
   transform: translateY(144px);
 }
@@ -3807,10 +3697,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   background: rgba(76, 76, 241, 0.2);
 }
 
-/* End Header Tabs Area css
-  ============================================================================================ */
-/* End Mission Area css
-  ============================================================================================ */
+ 
 .mission_area {
   padding-top: 75px;
 }
@@ -3856,10 +3743,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   color: #6b707f;
 }
 
-/* End Mission Area css
-  ============================================================================================ */
-/* Quesiton Area css
-  ============================================================================================ */
+ 
 .common_question_area {
   background: #f2f5f7;
   padding-top: 90px;
@@ -3934,10 +3818,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   box-shadow: 0 14px 25px rgba(29, 56, 70, 0.06);
 }
 
-/* End Quesiton Area css
-============================================================================================ */
-/* End Quesiton Area css
-============================================================================================ */
+ 
 .asking_area {
   background: #f2f5f7;
   padding: 70px 0;
@@ -3967,10 +3848,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   font-weight: 500;
 }
 
-/* End Quesiton Area css
-============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 .ycp .belah .luhur span.about {
   display: none;
 }
@@ -3984,9 +3862,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   float: right;
   margin-right: 0;
 }
-
-/* Video Area css
-============================================================================================ */
+ 
 .video_list_area {
   background: rgba(76, 76, 241, 0.07);
 }
@@ -4232,11 +4108,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .art-control.art-control-control13.art-control-onlyText {
   display: none;
 }
-
-/* End Video Area css
-============================================================================================ */
-/* End Video Area css
-============================================================================================ */
+ 
 .video_slider_area {
   background: #f9fbfc;
   padding-top: 110px;
@@ -5242,12 +5114,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .video_slider_area .video-js:hover .vjs-control-bar {
   transform: translateY(0);
 }
-
-/* End Video Area css
-============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*============== Start doc_tag_area css =============*/
+ 
 .doc_tag {
   display: flex;
   flex-wrap: wrap;
@@ -5320,9 +5187,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .tag_list li a:hover {
   color: #4c4cf1;
 }
-
-/*============== End doc_tag_area css =============*/
-/*============== Start documentation_area css =============*/
+ 
 .documentation_tab {
   border-bottom: 2px solid #e1e9eb;
 }
@@ -5417,9 +5282,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   margin-bottom: 0;
   line-height: 24px;
 }
-
-/*============== End documentation_area css =============*/
-/*============== Start doc_faq_area css =============*/
+ 
 .doc_faq_area .doc_tag {
   margin-bottom: 50px;
 }
@@ -5479,9 +5342,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   position: relative;
   z-index: 1;
 }
-
-/*============== End doc_faq_area css =============*/
-/*============== Start doc_categories_guide_area css =============*/
+ 
 .doc_categories_guide_area {
   position: relative;
   z-index: 1;
@@ -5520,9 +5381,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   padding: 10px 40px;
   margin-top: 30px;
 }
-
-/*============== End doc_categories_guide_area css =============*/
-/*============== Start doc_solution_area css =============*/
+ 
 .doc_solution_area .all_doc_btn {
   padding: 20px 73px;
   font-size: 18px;
@@ -5553,9 +5412,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .doc_solution_item.premium_doc {
   background: #daecfc;
 }
-
-/*============== End doc_solution_area css =============*/
-/*============== Start doc_fun_fact_area css =============*/
+ 
 .doc_fun_fact_area {
   background: #4c4cf1;
   padding: 105px 0;
@@ -5587,8 +5444,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   color: #fff;
   padding-top: 5px;
 }
-
-/* Fun Fact Style Two */
+ 
 .active-animation .path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 0;
@@ -5703,9 +5559,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .funfact-boxes .funfact-box.color-five .counter {
   color: #9360fc;
 }
-
-/*============== End doc_fun_fact_area css =============*/
-/*============== Start theme_doc_area css =============*/
+ 
 .theme_doc_area .row {
   margin-bottom: -30px;
 }
@@ -5735,9 +5589,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .theme_doc_item:hover {
   box-shadow: 0 30px 40px 0 rgba(4, 73, 89, 0.08);
 }
-
-/*============== End theme_doc_area css =============*/
-/*============== End theme_doc_area css =============*/
+ 
 .doc_action_info {
   border-radius: 4px;
   background: #fff;
@@ -5766,9 +5618,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   box-shadow: 0 20px 30px 0 rgba(76, 76, 241, 0.24);
   color: #fff;
 }
-
-/*============== End theme_doc_area css =============*/
-/*============== Start doc_action_area_two css =============*/
+ 
 .doc_action_area_three {
   background: #1d2746;
   padding: 140px 0;
@@ -5899,9 +5749,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   color: #aeb5ca;
   font-weight: 500;
 }
-
-/*============== End doc_action_area_two css =============*/
-/*=========== Start doc_faq_area_two ============*/
+ 
 .fact_navigation_info {
   border-radius: 4px;
   background-color: white;
@@ -5952,11 +5800,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .fact_navigation .nav-item + li {
   border-top: 1px solid #e6eeef;
 }
-
-/*=========== End doc_faq_area_two ============*/
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*============ Start doc_feedback_area css ==========*/
+ 
 .doc_feedback_area {
   position: relative;
   z-index: 1;
@@ -6074,9 +5918,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   font-weight: 400;
   margin-bottom: 0;
 }
-
-/*============ End doc_feedback_area css ==========*/
-/*============ Start doc_action_area css ==========*/
+ 
 .doc_action_area {
   position: relative;
   z-index: 1;
@@ -6105,10 +5947,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   color: #b4b9c8;
   margin-bottom: 0;
 }
-
-/*============ End doc_action_area css ==========*/
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 @keyframes wave2 {
   25% {
     transform-origin: 0 100%;
@@ -6252,8 +6091,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .clipInDown {
   animation-name: clipInDown;
 }
-
-/*================ preloader css ====================*/
+ 
 #preloader {
   background: #fff;
   height: 100%;
@@ -6364,9 +6202,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   to {
     transform: rotateZ(360deg);
   }
-}
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+} 
 .doc_documentation_area {
   z-index: 0;
 }
@@ -6389,7 +6225,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 }
 .doc_documentation_area.body_fixed .doc_left_sidebarlist {
   position: fixed;
-  top: 0;
+  top: 20px;
   /* width: 270px; */
 }
 @media (min-width: 1500px) {
@@ -6420,8 +6256,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .full-width-doc .body_fixed .doc_left_sidebarlist {
   padding-top: 30px;
 }
-
-/*============ doc_left_sidebarlist css =========*/
+ 
 body:not(.blog_single2_wrapper):not(.onepage-doc) .doc_mobile_menu:before,
 .doc:not(.onepage-doc) .doc_mobile_menu:before {
   content: "";
@@ -6561,8 +6396,7 @@ body:not(.blog_single2_wrapper):not(.onepage-doc) .doc_left_sidebarlist,
 .bottom_nav .nav-item .nav-link:hover i {
   transform: translateX(5px);
 }
-
-/*============ doc_left_sidebarlist css =========*/
+ 
 .documentation_info .c_head {
   font-weight: 500;
   margin-bottom: 12px;
@@ -7055,8 +6889,7 @@ body:not(.blog_single2_wrapper):not(.onepage-doc) .doc_left_sidebarlist,
 .contact_form .form-group .action_btn:hover {
   box-shadow: 0 20px 30px 0 rgba(76, 76, 241, 0.24);
 }
-
-/*========== doc_rightsidebar css ============*/
+ 
 .mCSB_scrollTools {
   width: 0;
 }
@@ -7208,8 +7041,7 @@ body:not(.blog_single2_wrapper):not(.onepage-doc) .doc_left_sidebarlist,
   padding-left: 30px;
   font-size: 28px;
 }
-
-/*=============== doc_documentation_full_area css =========*/
+ 
 .full-width-doc .doc_left_sidebarlist {
   margin-right: 0;
   padding-left: 0;
@@ -7248,51 +7080,8 @@ body:not(.onepage-doc) .sticky_menu .doc_documentation_area.body_fixed .doc_righ
   font-weight: 500;
 }
 
-/*========== typography_content css ========*/
-/* .doc .code-preview { */
-  /* border: 1px solid #e5ebef; */
-  /* padding: 20px; */
-  /* box-shadow: 0 3px 6px 0 rgba(4, 73, 89, 0.02); */
-  /* position: relative; */
-/* } */
-/* .doc .code-preview #header-name { */
-  /* margin-bottom: 0; */
-/* } */
-/* .doc .code-preview img { */
-  /* max-width: 100%; */
-/* } */
-/* .doc .code-preview.video_img { */
-  /* display: inline-block; */
-/* } */
-/* .doc .code-toolbar .snippets { */
-  /* margin-bottom: 0; */
-/* } */
-/* .doc .code-toolbar .snippets code { */
-  /* margin-bottom: 20px; */
-/* } */
-/* .doc .code_item { */
-  /* padding-top: 15px; */
-/* } */
-/* .doc .code_item p a { */
-  /* color: #4c4cf1; */
-/* } */
-/*  */
-/* .vjs-iframe-blocker { */
-  /* display: none; */
-/* } */
-/*  */
-/* .video-js { */
-  /* margin: 0 auto; */
-  /* width: 100%; */
-  /* max-width: 640px; */
-  /* height: 360px; */
-/* } */
-/* .video-js .mfp-close { */
-  /* right: -55px; */
-  /* top: -10px; */
-/* } */
-
-/*============ Sticky Nav doc css ================*/
+ 
+ 
 .sticky-nav-doc:not(.onepage-doc) .body_fixed .doc_rightsidebar, .sticky-nav-doc:not(.onepage-doc) .body_fixed .doc_left_sidebarlist {
   padding-top: 100px;
 }
@@ -7300,8 +7089,7 @@ body:not(.onepage-doc) .sticky_menu .doc_documentation_area.body_fixed .doc_righ
 .sticky-nav-doc .body_fixed.body_navbar_fixed .doc_rightsidebar {
   padding-top: 30px;
 }
-
-/*============ onepage doc css ================*/
+ 
 .onepage-doc .shortcode_info {
   padding-left: 0;
   padding-right: 0;
@@ -7313,7 +7101,7 @@ body:not(.onepage-doc) .sticky_menu .doc_documentation_area.body_fixed .doc_righ
   padding-top: 30px;
 }
 .onepage-doc .doc_left_sidebarlist {
- /*  width: 270px; */
+ 
   margin-right: 0;
   border: 0;
   padding-top: 0;
@@ -7546,9 +7334,7 @@ body:not(.onepage-doc) .sticky_menu .doc_documentation_area.body_fixed .doc_righ
 body:not(.onepage-doc) .body_fixed #font-switcher {
   width: 204px;
 }
-
-/* Collaps Tabs Area css
-============================================================================================ */
+ 
 .collaps_tabs {
   margin-bottom: 70px;
 }
@@ -7745,9 +7531,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   left: 0;
   font-size: 12px;
 }
-
-/* Forum Collaps Tabs Area css
-============================================================================================ */
+ 
 .small-dialog {
   padding: 50px 40px;
 }
@@ -7864,8 +7648,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   opacity: 1;
   background: rgba(0, 0, 0, 0.5);
 }
-
-/* Styles for dialog window */
+ 
 .small-dialog {
   background: white;
   padding: 50px 40px;
@@ -7874,11 +7657,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   margin: 0 auto;
   position: relative;
 }
-
-/**
- * Fade-zoom animation for first dialog
- */
-/* start state */
+ 
 .my-mfp-zoom-in .zoom-anim-dialog {
   opacity: 0;
   -webkit-transition: all 0.2s ease-in-out;
@@ -7891,8 +7670,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   -o-transform: scale(0.8);
   transform: scale(0.8);
 }
-
-/* animate in */
+ 
 .my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
   opacity: 1;
   -webkit-transform: scale(1);
@@ -7901,8 +7679,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   -o-transform: scale(1);
   transform: scale(1);
 }
-
-/* animate out */
+ 
 .my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
@@ -7911,8 +7688,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   transform: scale(0.8);
   opacity: 0;
 }
-
-/* Dark overlay, start state */
+ 
 .my-mfp-zoom-in.mfp-bg {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-out;
@@ -7920,21 +7696,15 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
-
-/* animate in */
+ 
 .my-mfp-zoom-in.mfp-ready.mfp-bg {
   opacity: 0.8;
 }
-
-/* animate out */
+ 
 .my-mfp-zoom-in.mfp-removing.mfp-bg {
   opacity: 0;
 }
-
-/**
- * Fade-move animation for second dialog
- */
-/* at start */
+ 
 .my-mfp-slide-bottom .zoom-anim-dialog {
   opacity: 0;
   -webkit-transition: all 0.2s ease-out;
@@ -7947,8 +7717,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   -o-transform: translateY(-20px) perspective(600px) rotateX(10deg);
   transform: translateY(-20px) perspective(600px) rotateX(10deg);
 }
-
-/* animate in */
+ 
 .my-mfp-slide-bottom.mfp-ready .zoom-anim-dialog {
   opacity: 1;
   -webkit-transform: translateY(0) perspective(600px) rotateX(0);
@@ -7957,8 +7726,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   -o-transform: translateY(0) perspective(600px) rotateX(0);
   transform: translateY(0) perspective(600px) rotateX(0);
 }
-
-/* animate out */
+ 
 .my-mfp-slide-bottom.mfp-removing .zoom-anim-dialog {
   opacity: 0;
   -webkit-transform: translateY(-10px) perspective(600px) rotateX(10deg);
@@ -7968,7 +7736,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   transform: translateY(-10px) perspective(600px) rotateX(10deg);
 }
 
-/* Dark overlay, start state */
+/ 
 .my-mfp-slide-bottom.mfp-bg {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-out;
@@ -7976,19 +7744,15 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
-
-/* animate in */
+ 
 .my-mfp-slide-bottom.mfp-ready.mfp-bg {
   opacity: 0.8;
 }
-
-/* animate out */
+ 
 .my-mfp-slide-bottom.mfp-removing.mfp-bg {
   opacity: 0;
 }
-
-/* Data Table Area css
-============================================================================================ */
+ 
 .data_table_area .dataTables_length {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -8111,9 +7875,7 @@ body:not(.onepage-doc) .body_fixed #font-switcher {
   color: #fff !important;
   border-color: #4c4cf1 !important;
 }
-
-/* 3d video Slider Area css
-============================================================================================ */
+ 
 .flipvideo_area .slider-wrapper.no-padding .js-slider--main {
   padding-top: 7px;
 }
@@ -8697,12 +8459,7 @@ button.swiper-pagination-bullet {
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   width: 12px;
-}
-
-/* End 3d video Slider Area css
-============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+} 
 .status-chart {
   padding: 62px 0 112px;
 }
@@ -9020,9 +8777,7 @@ button.swiper-pagination-bullet {
     width: 230px;
   }
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 .related-communities {
   padding: 55px 0 50px;
 }
@@ -9132,9 +8887,7 @@ button.swiper-pagination-bullet {
   margin-top: 80px;
   display: none;
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 .about-journalism {
   background: #fafcfd;
   overflow: hidden;
@@ -9266,9 +9019,7 @@ button.swiper-pagination-bullet {
   .md-order-two {
     order: 2;
   }
-}
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+} 
 .communities {
   padding: 115px 0 90px;
 }
@@ -9329,9 +9080,7 @@ button.swiper-pagination-bullet {
 .community-box:hover:before {
   background: #4c4cf1;
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 .community-posts-area {
   padding: 110px 0 120px;
 }
@@ -9685,10 +9434,7 @@ button.swiper-pagination-bullet {
   background: #4c4cf1;
   color: #fff;
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*========== shortcode_text css ==============*/
+ 
 .shortcode_text .shortcode_title p {
   margin-bottom: 20px;
 }
@@ -9708,8 +9454,7 @@ button.swiper-pagination-bullet {
 .article_list {
   margin-bottom: 30px;
 }
-
-/*============== shortcode_info css =========*/
+ 
 .doc-middle-content {
   padding-left: 15px;
   padding-right: 60px;
@@ -9794,9 +9539,7 @@ body.doc.test.remove .shortcode_info h4 {
   border-radius: 5px;
   border-top-left-radius: 0;
 }
-
-/*============== shortcode_info css =========*/
-/*=========== toggle_shortcode css ========*/
+ 
 .toggle_shortcode {
   padding-bottom: 60px;
 }
@@ -9836,9 +9579,7 @@ body.doc.test.remove .shortcode_info h4 {
   border-radius: 0 0 4px 4px;
   line-height: 26px;
 }
-
-/*=========== toggle_shortcode css ========*/
-/*=========== doc_accordion Shortcode css ========*/
+ 
 .doc_accordion {
   border: 0;
   margin-bottom: 1rem;
@@ -9894,9 +9635,7 @@ body.doc.test.remove .shortcode_info h4 {
 .doc_accordion .card-header button.collapsed svg + svg {
   display: none;
 }
-
-/*=========== doc_accordion Shortcode css ========*/
-/*=========== message_alert Shortcode css ========*/
+ 
 .message_alert {
   border: 1px solid #e5e9eb;
   border-radius: 4px;
@@ -9964,9 +9703,7 @@ body.doc.test.remove .shortcode_info h4 {
 .alert-info h5 {
   color: #4c4cf1;
 }
-
-/*=========== message_alert Shortcode css ========*/
-/*=========== notice Shortcode css ========*/
+ 
 .notice_shortcode {
   padding-top: 25px;
 }
@@ -10060,8 +9797,7 @@ body.doc.test.remove .shortcode_info h4 {
   color: #000;
   background: #fff;
 }
-
-/*=========== lightbox Shortcode css ========*/
+ 
 .lightbox_shortcode {
   display: inline-block;
   position: relative;
@@ -10136,9 +9872,7 @@ button.mfp-close {
 .mfp-with-zoom.mfp-removing.mfp-bg {
   opacity: 0;
 }
-
-/*=========== lightbox Shortcode css ========*/
-/*=========== tooltip Shortcode css ========*/
+ 
 .tooltipster-sidetip .tooltipster-box {
   max-width: 300px;
   background: #fff;
@@ -10262,9 +9996,7 @@ button.mfp-close {
 .tip_content#tooltipTwo {
   min-height: 450px;
 }
-
-/*=========== tooltip Shortcode css ========*/
-/*=========== image_pointer Shortcode css ========*/
+ 
 .image_pointer .pointing_img {
   padding-bottom: 20px;
 }
@@ -10385,9 +10117,7 @@ button.mfp-close {
 }
 .pointing_img_two img {
   box-shadow: 0 20px 50px 0 rgba(4, 73, 89, 0.1);
-}
-/*=========== image_pointer Shortcode css ========*/
-/*=========== caniuse Shortcode css ========*/
+} 
 .caniuse ul {
   display: flex;
   flex-wrap: wrap;
@@ -10476,9 +10206,7 @@ button.mfp-close {
   background: #9744fd;
   color: #fff;
 }
-
-/*=========== caniuse Shortcode css ========*/
-/*=========== table Shortcode css ========*/
+ 
 .table_shortcode thead {
   background: #5757ff;
 }
@@ -10544,9 +10272,7 @@ button.mfp-close {
   background: #4c4cf1;
   color: #fff;
 }
-
-/*=========== table Shortcode css ========*/
-/*============ Footnote ===========*/
+ 
 .text-component--has-footnotes {
   counter-reset: footnotes;
 }
@@ -10592,9 +10318,7 @@ button.mfp-close {
   outline: 2px solid #4c4cf1;
   outline-offset: 2px;
 }
-
-/*============ Footnote ===========*/
-/*============ List Style ===========*/
+ 
 .single_list {
   list-style: none;
   box-shadow: 0 3px 6px 0 rgba(4, 73, 89, 0.02);
@@ -10624,8 +10348,7 @@ button.mfp-close {
 .single_list li + li {
   margin-top: 15px;
 }
-
-/** === List Style === **/
+ 
 .steps-panel {
   box-shadow: 0 3px 6px 0 rgba(4, 73, 89, 0.02);
   border: 1px solid #e5ebef;
@@ -10680,8 +10403,7 @@ ul.ordered-list li::before {
   left: -4px;
   border: 5px solid #fff;
 }
-
-/*============ changelog css ===========*/
+ 
 .changelog_inner {
   padding-right: 30px;
   padding-bottom: 100px;
@@ -10859,8 +10581,7 @@ ul.ordered-list li::before {
 .tour_preview_img {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-/*========== cheatsheet_info css =========*/
+ 
 .cheatsheet_info + .cheatsheet_info {
   margin-top: 30px;
 }
@@ -10918,11 +10639,7 @@ ul.ordered-list li::before {
   margin-bottom: 0;
   color: #4c4cf1;
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/* Hotspot Area css
-============================================================================================ */
+ 
 .pointing_img_container .divs {
   visibility: hidden;
   height: 0;
@@ -11170,12 +10887,7 @@ ul.ordered-list li::before {
 .blur .forum_footer_area {
   filter: blur(6px);
 }
-
-/* End Hotspot Area css
-============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*==============typography_area css ================*/
+ 
 .typography_area {
   padding: 115px 0 120px;
 }
@@ -11466,9 +11178,7 @@ ul.ordered-list li::before {
 .dropcap_inner {
   padding: 50px 0;
 }
-
-/*==============typography_area css ================*/
-/*==============action_area_three css ================*/
+ 
 .action_area_three {
   background: url("/img/action_bg.jpg") no-repeat scroll center 0/cover;
   padding: 110px 0;
@@ -11497,11 +11207,7 @@ ul.ordered-list li::before {
   color: #4c4cf1;
   border-color: #fff;
 }
-
-/*==============action_area_three css ================*/
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/** === Forum heading bar === **/
+ 
 .post-header {
   display: flex;
   justify-content: space-between;
@@ -12033,9 +11739,7 @@ ul.forum-titles .forum-freshness .freshness-box .freshness-btm .bbp-author-avata
   background: #0abe76;
   color: #fff;
 }
-
-/* Forum Profile Area css
-============================================================================================ */
+ 
 .forum-user-wrapper {
   background: #fbfbfc;
   padding-bottom: 135px;
@@ -12816,11 +12520,7 @@ ul.forum-titles .forum-freshness .freshness-box .freshness-btm .bbp-author-avata
 .topic_comment_list li:last-child .media .media-body {
   border-bottom: 0;
 }
-
-/* End Forum Area css
-============================================================================================ */
-/* Forum Sidebar Area css
-============================================================================================ */
+ 
 .topics-filter {
   margin-bottom: 30px;
 }
@@ -13459,22 +13159,17 @@ ul.forum-titles .forum-freshness .freshness-box .freshness-btm .bbp-author-avata
 }
 
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
+input::-webkit-inner-spin-button { 
   -webkit-appearance: none;
   margin: 0;
-  /* <-- Apparently some margin are still there even though it's hidden */
+  
 }
 
 input[type=number] {
   -moz-appearance: textfield;
   /* Firefox */
 }
-
-/* End Forum Sidebar Area css
-============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 .forum-post-top {
   display: flex;
 }
@@ -13598,8 +13293,7 @@ input[type=number] {
   margin-right: 15px;
   font-weight: 600;
 }
-
-/** === Best Answer === **/
+ 
 .best-answer {
   background: #f1fdf3;
   padding: 30px 40px 30px 30px;
@@ -13627,8 +13321,7 @@ input[type=number] {
 .best-answer .best-ans-content p:last-child {
   margin-bottom: 0;
 }
-
-/** === All answer === **/
+ 
 .all-answers {
   margin-top: 60px;
 }
@@ -13708,17 +13401,12 @@ input[type=number] {
   box-shadow: none;
   margin-top: 15px;
 }
-
-/** === Forum Sidebar === **/
+ 
 .forum_sidebar {
   padding-left: 28px;
   font-size: 14px;
   padding-right: 5px;
-}
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*=========== blog_top_post_area css ==========*/
+} 
 .blog_top_post {
   box-shadow: 0 3px 6px 0 rgba(4, 73, 89, 0.06);
   border-radius: 6px;
@@ -13823,9 +13511,7 @@ input[type=number] {
   font-weight: 400;
   color: #6b707f;
 }
-
-/*=========== blog_top_post_area css ==========*/
-/*=========== Start blog_grid_area css ==========*/
+ 
 .doc_blog_grid_area {
   padding-bottom: 100px;
 }
@@ -13938,9 +13624,7 @@ input[type=number] {
 .doc_blog_grid_area_two {
   padding: 100px 0 120px;
 }
-
-/*=========== End blog_grid_area css ==========*/
-/*=========== Start blog_area css ==========*/
+ 
 .blog_area {
   padding: 100px 0 120px;
 }
@@ -14192,7 +13876,6 @@ blockquote .author {
   box-shadow: 0 20px 30px 0 rgba(76, 76, 241, 0.24);
 }
 
-/*============= doc_blog_classic_area css ==============*/
 .doc_blog_classic_area blockquote {
   margin-top: 0;
   margin-bottom: 50px;
@@ -14353,8 +14036,7 @@ blockquote .author {
 .blog_related_post .grid_post_content p {
   margin-bottom: 0;
 }
-
-/*============ keyframes animation  =============*/
+ 
 @-webkit-keyframes pulse {
   0% {
     opacity: 1;
@@ -14374,8 +14056,7 @@ blockquote .author {
     opacity: 0;
     transform: translate(-50%, -50%) scale(2);
   }
-}
-/*============= doc_blog_classic_area css ==============*/
+} 
 .pagination .page-numbers {
   width: 36px;
   height: 36px;
@@ -14405,9 +14086,7 @@ blockquote .author {
 .pagination .page-numbers.current {
   box-shadow: none;
 }
-
-/*=========== End blog_area css ==========*/
-/*=========== Start blog_sidebar css ==========*/
+ 
 .blog_sidebar > ul.list-unstyled {
   margin-top: -10px;
 }
@@ -14581,9 +14260,7 @@ blockquote .author {
 .instragram_info .instragram_item:hover:before {
   opacity: 1;
 }
-
-/*=========== End blog_sidebar css ==========*/
-/*=========== Start blog_single2 css ==========*/
+ 
 .tip_banner_area {
   background-image: url("/img/blog-single2/banner.jpg");
   background-size: cover;
@@ -14831,11 +14508,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
   z-index: 1;
   position: relative;
 }
-
-/*=========== End blog_single2 css ==========*/
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*================ signup_area css ==============*/
+ 
 .signup_area {
   height: 100vh;
   min-height: 580px;
@@ -15046,9 +14719,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .login_form .thm_btn:hover {
   box-shadow: 0 20px 30px 0 rgba(76, 76, 241, 0.24);
 }
-
-/*================ signup_area css ==============*/
-/*================ signin_left css ==============*/
+ 
 .signin_left {
   background: #4c4cf1;
 }
@@ -15074,11 +14745,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .signin_left .bottom {
   bottom: 100px;
 }
-
-/*================ signin_left css ==============*/
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*=========== contact_area css =========*/
+ 
 .get_info_area {
   position: relative;
   z-index: 1;
@@ -15265,10 +14932,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .contact_info .contact_fill {
   padding-top: 20px;
 }
-
-/*=========== contact_area css =========*/
-/* Support Area css
-============================================================================================ */
+ 
 .support_area {
   background: #002454;
   overflow: hidden;
@@ -15308,12 +14972,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
   z-index: 4;
   position: relative;
 }
-
-/* End Support Area css
-  ============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*============ error_area css ========*/
+ 
 .error_area {
   display: flex;
   position: relative;
@@ -15434,11 +15093,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .error_search .form-control::-webkit-input-placeholder {
   color: #82879c;
 }
-
-/*============ error_area css ========*/
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*=============  doc_banner_area css  =============*/
+ 
 .doc_banner_area {
   background: #3636cd;
   text-align: center;
@@ -15714,9 +15369,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
   background: #4a4ad2;
   color: #fff;
 }
-
-/*=============  doc_banner_area css  =============*/
-/*============== doc_features_area css  ===========*/
+ 
 .doc_features_area {
   padding-bottom: 40px;
   position: relative;
@@ -15790,9 +15443,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .doc_features_item:nth-child(1), .doc_features_item:nth-child(4), .doc_features_item:nth-child(7), .doc_features_item:nth-child(10) {
   border-left: 0;
 }
-
-/*============== doc_features_area css  ===========*/
-/*============== recommended_topic_area css  ===========*/
+ 
 .recommended_topic_inner {
   position: relative;
   z-index: 1;
@@ -15903,9 +15554,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .question_text:hover {
   color: #4c4cf1;
 }
-
-/*============== recommended_topic_area css  ===========*/
-/*============= doc_community_area css  ================*/
+ 
 .doc_community_area {
   padding: 200px 0 75px;
   position: relative;
@@ -16024,9 +15673,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
   background: #f1fbf8;
   color: #0fbc8b;
 }
-
-/*============= doc_community_area css  ================*/
-/*============= doc_testimonial_area css  ================*/
+ 
 .doc_testimonial_area {
   padding: 160px 0 135px;
 }
@@ -16144,8 +15791,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .doc_img_slider .item.slick-active .two {
   animation: zoomIn 0.8s linear both 0.5s;
 }
-
-/*============= doc_testimonial_area css  ================*/
+ 
 .doc_subs_full .doc_subscribe_inner {
   border-radius: 0;
   box-shadow: none;
@@ -16283,8 +15929,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
   margin-bottom: 0;
   margin-top: 5px;
 }
-
-/*=============== doc_footer_area css  ==============*/
+ 
 .doc_footer_top {
   padding: 100px 0 90px;
   background: #f9f9f9;
@@ -16392,12 +16037,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 .doc_footer_menu li a:hover {
   color: #4c4cf1;
 }
-
-/*=============== doc_footer_area css  ==============*/
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/* Animation Area css
-============================================================================================ */
+ 
 @keyframes myfirst {
   0% {
     left: 6%;
@@ -16445,12 +16085,7 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
     top: 176px;
     opacity: 0;
   }
-}
-/* End Animation Area css
-============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-/*========== Start footer_area css ==========*/
+} 
 .footer_area {
   padding-top: 100px;
   position: relative;
@@ -16738,13 +16373,9 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
 }
 
 
-
- /* ============================================================================================ */
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
+ 
 body.body_dark {
-  color: #c8ccd0;
-  /** === Sticky Menu Navbar === **/
+  color: #c8ccd0; 
 }
 body.body_dark h1, body.body_dark h2, body.body_dark h3, body.body_dark h4, body.body_dark h5, body.body_dark h6,
 body.body_dark .topics-filter .nav-item .nav-link.active, body.body_dark .topics-filter .nav-item .nav-link:hover, body.body_dark .learn_btn,
@@ -16836,14 +16467,8 @@ body.body_dark .sticky_menu .menu > .nav-item.submenu .dropdown-menu, body.body_
 body.body_dark .sticky_menu .menu_one .menu > .nav-item .nav-link, body.body_dark .sticky_menu .menu > .nav-item.submenu .dropdown-menu .nav-item .nav-link h5 {
   color: #fff;
 }
-
-/*---------------------------------------------------- */
-/*----------------------------------------------------*/
-.body_dark {
-  /** === Focus, active color === **/
-  /** !-- End Focus, active color **/
-  /** === Border color === **/
-  /** !-- End Border color **/
+ 
+.body_dark { 
 }
 .body_dark.onepage-doc .nav-sidebar .nav-item .docs-progress-bar, .body_dark .fontsize-controllers .btn-group .btn:focus,
 .body_dark .doc_rightsidebar .bootstrap-select > .dropdown-menu .inner .dropdown-menu li a.active, .body_dark .doc_rightsidebar .bootstrap-select > .dropdown-menu .inner .dropdown-menu li a:hover {
@@ -16941,6 +16566,4 @@ body.body_dark .sticky_menu .menu_one .menu > .nav-item .nav-link, body.body_dar
   opacity: 0.9;
 }
 
-/*---------------------------------------------------- */
-
-/*# sourceMappingURL=style-main.css.map */
+ 

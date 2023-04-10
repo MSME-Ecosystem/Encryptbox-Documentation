@@ -117,23 +117,22 @@ Home.getLayout = function getLayout(page) {
   return (
     <>
       <HomeLayout>{page}</HomeLayout>
-      <Script src="/js/jquery-3.5.1.min.js"></Script>
-      <Script src="/assets/bootstrap/js/popper.min.js"></Script>
-      <Script src="/assets/bootstrap/js/bootstrap.min.js"></Script>
-      <Script src="/assets/bootstrap/js/bootstrap-select.min.js"></Script>
-      <Script src="/js/parallaxie.js"></Script>
-      <Script src="/js/TweenMax.min.js"></Script>
-      <Script src="/js/anchor.js"></Script>
-      <Script src="/assets/wow/wow.min.js"></Script>
-      <Script src="/assets/prism/prism.js"></Script>
-      <Script src="/assets/niceselectpicker/jquery.nice-select.min.js"></Script>
-      <Script src="/assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></Script>
-      <Script src="/assets/magnify-pop/jquery.magnific-popup.min.js"></Script>
-      <Script src="/assets/tooltipster/js/tooltipster.bundle.min.js"></Script>
-      <Script src="/assets/font-size/js/rv-jquery-fontsize-2.0.3.js"></Script>
-      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></Script>
-      <Script src="/js/onpage-menu.js"></Script>
-      <Script src="/js/main.js"></Script>
+      <Script src="/js/jquery-3.5.1.min.js" id="jquery"></Script> 
+      <Script src="/assets/bootstrap/js/popper.min.js" id="popper"></Script>
+      <Script src="/assets/bootstrap/js/bootstrap.min.js" id="boostrapmin"></Script>
+      <Script src="/assets/bootstrap/js/bootstrap-select.min.js" id="boottrapselect"></Script>
+      <Script src="/js/parallaxie.js" id="paralaxie"></Script>
+      <Script src="/js/TweenMax.min.js" id="TweenMax"></Script>
+      <Script src="/js/anchor.js" id="anchor"></Script>
+      <Script src="/assets/wow/wow.min.js" id="wow"></Script> 
+      <Script src="/assets/niceselectpicker/jquery.nice-select.min.js" id="niceselect"></Script>
+      <Script src="/assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js" id="customcrollbar"></Script>
+      <Script src="/assets/magnify-pop/jquery.magnific-popup.min.js" id="popup"></Script>
+      <Script src="/assets/tooltipster/js/tooltipster.bundle.min.js" id="tooltipster"></Script>
+      <Script src="/assets/font-size/js/rv-jquery-fontsize-2.0.3.js" id="rvjquery"></Script>
+      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js" id="ionicons"></Script>
+      <Script src="/js/onpage-menu.js" id="onPageMenu"></Script>
+      <Script src="/js/main.js" id="main"></Script>
     </>
   );
 };

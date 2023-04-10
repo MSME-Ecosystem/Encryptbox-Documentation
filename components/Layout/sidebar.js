@@ -22,7 +22,7 @@ function Sidebar() {
           <li className="nav-item">
             <a href="#tour" className="nav-link">
               <img src="img/side-nav/chat1.png" alt="" />
-              Tour
+              Create Account
             </a>
             <span className="icon">
               <i className="icon_plus" />
@@ -39,7 +39,7 @@ function Sidebar() {
           <li className="nav-item">
             <a href="#typography" className="nav-link">
               <img src="img/side-nav/document.png" alt="" />
-              Content
+              Voucher Transactions
             </a>
             <span className="icon">
               <i className="icon_plus" />
@@ -66,33 +66,15 @@ function Sidebar() {
           <li className="nav-item">
             <a href="#changelog" className="nav-link">
               <img src="img/side-nav/clock.png" alt="" />
-              Change Log
+             Crypto Transactions
             </a>
           </li>
           <li className="nav-item">
             <a href="#cheatsheet" className="nav-link">
               <img src="img/side-nav/book.png" alt="" />
-              Cheatsheet
+              Miscellaneous
             </a>
-          </li>
-          <li className="nav-item">
-            <a href="#ex1" className="nav-link">
-              <img src="img/side-nav/chat.png" alt="" />
-              Example Item
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#ex2" className="nav-link">
-              <img src="img/side-nav/layout.png" alt="" />
-              Example Item 02
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#ex3" className="nav-link">
-              <img src="img/side-nav/support.png" alt="" />
-              Example Item 03
-            </a>
-          </li>
+          </li>         
         </ul>
       </div>
     </aside>
