@@ -1,7 +1,6 @@
 import HomeLayout from "@/components/Layout/HomeLayout";
 import Sidebar from "@/components/Layout/sidebar";
-import Script from "next/script";
-import Link from "next/link";
+import Script from "next/script"; 
 import Feedback from "@/components/Feedback";
 
 export default function Home() {
@@ -48,7 +47,7 @@ export default function Home() {
                       For the purpose of product integration and testing on the
                       Binance Smart Chain testnet, EncryptBox offers a test
                       environment. This environment provides developers with API
-                      keys and addresses to facilitate experimentation. It's
+                      keys and addresses to facilitate experimentation. It&apos;s
                       worth noting that the API keys and addresses used in the
                       test environment are distinct from those used in the live
                       environment.
@@ -59,7 +58,7 @@ export default function Home() {
                       successfully conducted on the test environment, merchants
                       can proceed to use it in the production environment to
                       receive actual funds on the Binance Smart Chain mainnet.
-                      It's important to note that the API keys and addresses
+                      It&apos;s important to note that the API keys and addresses
                       used in the live environment are different from those used
                       in the test environment.
                     </p>
@@ -77,10 +76,10 @@ export default function Home() {
                         <p>
                           We highly value your input and welcome any questions
                           or feedback you may have regarding our developer
-                          documentation. If you require assistance, please don't
+                          documentation. If you require assistance, please don&apos;t
                           hesitate to create a new thread under the docs
-                          category on EncryptBox's official forums. If you have
-                          any feedback you'd like to share, we invite you to
+                          category on EncryptBox&apos;s official forums. If you have
+                          any feedback you&apos;d like to share, we invite you to
                           drop your comments on the contact us form. We are
                           eager to hear from you.
                         </p>
@@ -118,23 +117,22 @@ Home.getLayout = function getLayout(page) {
   return (
     <>
       <HomeLayout>{page}</HomeLayout>
-      <Script src="/js/jquery-3.5.1.min.js"></Script>
-      <Script src="/assets/bootstrap/js/popper.min.js"></Script>
-      <Script src="/assets/bootstrap/js/bootstrap.min.js"></Script>
-      <Script src="/assets/bootstrap/js/bootstrap-select.min.js"></Script>
-      <Script src="/js/parallaxie.js"></Script>
-      <Script src="/js/TweenMax.min.js"></Script>
-      <Script src="/js/anchor.js"></Script>
-      <Script src="/assets/wow/wow.min.js"></Script>
-      <Script src="/assets/prism/prism.js"></Script>
-      <Script src="/assets/niceselectpicker/jquery.nice-select.min.js"></Script>
-      <Script src="/assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></Script>
-      <Script src="/assets/magnify-pop/jquery.magnific-popup.min.js"></Script>
-      <Script src="/assets/tooltipster/js/tooltipster.bundle.min.js"></Script>
-      <Script src="/assets/font-size/js/rv-jquery-fontsize-2.0.3.js"></Script>
-      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></Script>
-      <Script src="/js/onpage-menu.js"></Script>
-      <Script src="/js/main.js"></Script>
+      <Script src="/js/jquery-3.5.1.min.js" id="jquery"></Script> 
+      <Script src="/assets/bootstrap/js/popper.min.js" id="popper"></Script>
+      <Script src="/assets/bootstrap/js/bootstrap.min.js" id="boostrapmin"></Script>
+      <Script src="/assets/bootstrap/js/bootstrap-select.min.js" id="boottrapselect"></Script>
+      <Script src="/js/parallaxie.js" id="paralaxie"></Script>
+      <Script src="/js/TweenMax.min.js" id="TweenMax"></Script>
+      <Script src="/js/anchor.js" id="anchor"></Script>
+      <Script src="/assets/wow/wow.min.js" id="wow"></Script> 
+      <Script src="/assets/niceselectpicker/jquery.nice-select.min.js" id="niceselect"></Script>
+      <Script src="/assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js" id="customcrollbar"></Script>
+      <Script src="/assets/magnify-pop/jquery.magnific-popup.min.js" id="popup"></Script>
+      <Script src="/assets/tooltipster/js/tooltipster.bundle.min.js" id="tooltipster"></Script>
+      <Script src="/assets/font-size/js/rv-jquery-fontsize-2.0.3.js" id="rvjquery"></Script>
+      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js" id="ionicons"></Script>
+      <Script src="/js/onpage-menu.js" id="onPageMenu"></Script>
+      <Script src="/js/main.js" id="main"></Script>
     </>
   );
 };
