@@ -23,7 +23,7 @@ export default function Home() {
   headers: {
     token: PK_LIVE,
     "Content-Type": "application/json",
-  }
+    }
   `;
   return (
     <>
@@ -50,7 +50,7 @@ export default function Home() {
                     <p>
                       <span>
                         Authenticate your API calls by including your secret key
-                        or public key depending on the request you're making in
+                        or public key depending on the request you&apos;re making in
                         the header of request you make.
                       </span>{" "}
                     </p>
@@ -92,21 +92,21 @@ export default function Home() {
                     <div className="p-2 ">
                       <div className="steps-panel p-2">
                         <h5>Sample Authorization Headers</h5>
-                        <Code children={auth} language={JSON} />
+                        <Code code={auth} language={JSON} />
                       </div>
                     </div>
                   </div>
 
-                  <div class="container">
-                    <div class="row justify-content-between">
-                      <div class="col-5">
+                  <div className="container">
+                    <div className="row justify-content-between">
+                      <div className="col-5">
                         <Link href="/" className="steps-panel">
                           Previous
                         </Link>
                       </div>
 
-                      <div class="col-5 ">
-                      <div class="col-5">
+                      <div className="col-5 ">
+                      <div className="col-5">
                         <Link href="/" className="steps-panel">
                           Next
                         </Link>

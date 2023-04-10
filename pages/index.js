@@ -1,7 +1,6 @@
 import HomeLayout from "@/components/Layout/HomeLayout";
 import Sidebar from "@/components/Layout/sidebar";
-import Script from "next/script";
-import Link from "next/link";
+import Script from "next/script"; 
 import Feedback from "@/components/Feedback";
 
 export default function Home() {
@@ -48,7 +47,7 @@ export default function Home() {
                       For the purpose of product integration and testing on the
                       Binance Smart Chain testnet, EncryptBox offers a test
                       environment. This environment provides developers with API
-                      keys and addresses to facilitate experimentation. It's
+                      keys and addresses to facilitate experimentation. It&apos;s
                       worth noting that the API keys and addresses used in the
                       test environment are distinct from those used in the live
                       environment.
@@ -59,7 +58,7 @@ export default function Home() {
                       successfully conducted on the test environment, merchants
                       can proceed to use it in the production environment to
                       receive actual funds on the Binance Smart Chain mainnet.
-                      It's important to note that the API keys and addresses
+                      It&apos;s important to note that the API keys and addresses
                       used in the live environment are different from those used
                       in the test environment.
                     </p>
@@ -77,10 +76,10 @@ export default function Home() {
                         <p>
                           We highly value your input and welcome any questions
                           or feedback you may have regarding our developer
-                          documentation. If you require assistance, please don't
+                          documentation. If you require assistance, please don&apos;t
                           hesitate to create a new thread under the docs
-                          category on EncryptBox's official forums. If you have
-                          any feedback you'd like to share, we invite you to
+                          category on EncryptBox&apos;s official forums. If you have
+                          any feedback you&apos;d like to share, we invite you to
                           drop your comments on the contact us form. We are
                           eager to hear from you.
                         </p>
