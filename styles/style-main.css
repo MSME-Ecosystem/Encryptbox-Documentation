@@ -6226,7 +6226,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
 .doc_documentation_area.body_fixed .doc_left_sidebarlist {
   position: fixed;
   top: 20px;
-  /* width: 270px; */
+  
 }
 @media (min-width: 1500px) {
   .doc_documentation_area.body_fixed .doc_left_sidebarlist {
@@ -13167,7 +13167,7 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
-  /* Firefox */
+  
 }
  
 .forum-post-top {
@@ -16371,8 +16371,6 @@ body.body_dark .documentation_area .blog_info .body_item .info_subtitle {
   border-color: #4c4cf1;
   color: #fff;
 }
-
-
  
 body.body_dark {
   color: #c8ccd0; 

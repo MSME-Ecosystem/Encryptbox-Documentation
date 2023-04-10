@@ -1,4 +1,4 @@
-//  import "@/styles/responsive.css";
+ import "@/styles/responsive.css";
 // import "@/styles/style-main.css";
 
 import "@/public/assets/bootstrap/css/bootstrap.min.css";
