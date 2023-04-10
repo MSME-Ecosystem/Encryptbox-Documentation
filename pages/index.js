@@ -2,20 +2,10 @@ import HomeLayout from "@/components/Layout/HomeLayout";
 import Sidebar from "@/components/Layout/sidebar";
 import Script from "next/script";
 import Link from "next/link";
+import Feedback from "@/components/Feedback";
 
 export default function Home() {
-  const succesMessage = `
-    {
-      "reference": "hjerj3784ufikj394iuiwwriw",
-      "first_name": "Alaoo",
-      "last_name": "Miracle",
-      "mobile_number": "08144889589597u",
-      "address": "hgfghjkjhgfghjkhg",
-      "email": "mikexenon12@yahoo.com",
-      "nin": "12223457",
-      "bvn": "234567898987658"
-    }  
-  `;
+
   return (
     <>
       <section
@@ -112,53 +102,14 @@ export default function Home() {
                   </div>
                 </article>
 
-                <article className="shortcode_info doc-section">
-                  <div className="border_bottom" />
-                  <div className="row feedback_link">
-                    <div className="col-lg-6">
-                      <h6>
-                        <i className="icon_mail_alt" />
-                        Still stuck?{" "}
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#exampleModal2"
-                        >
-                          How can we help?
-                        </a>
-                      </h6>
-                    </div>
-                    <div className="col-lg-6">
-                      <p>
-                        Was this page helpful?{" "}
-                        <a href="#" className="h_btn">
-                          Yes
-                        </a>
-                        <a href="#" className="h_btn">
-                          No
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </article>
+                <Feedback/>
               </div>
             </div>
             <div className="col-lg-2 col-md-4 "></div>
           </div>
         </div>
       </section>
-      <footer className="simple_footer">
-        <div className="container ">
-          <p className="text-center">
-            © {new Date().getFullYear()} All Rights Reserved by{" "}
-            <Link href="https://encryptbox.co.uk" target="_blank" rel="noreferrer">EncryptBox</Link>
-          </p>
-        </div>
-      </footer>
-
-      <a id="back-to-top" title="Back to Top" />
-      {/* Optional JavaScript */}
-      {/* jQuery first, then Popper.js, then Bootstrap JS */}
+      
     </>
   );
 }

@@ -8,9 +8,9 @@ import "@/public/assets/elagent-icon/style.css";
 import "@/public/assets/niceselectpicker/nice-select.css";
 import "@/public/assets/font-size/css/rvfs.css";
 import "@/public/assets/animation/animate.css"; 
-import "@/public/assets/tooltipster/css/tooltipster.bundle.css";
+import "@/public/assets/tooltipster/css/tooltipster.bundle.css";/* 
 import "@/public/assets/prism/prism.css";
-import "@/public/assets/prism/prism-coy.css";
+import "@/public/assets/prism/prism-coy.css"; */
 import "@/public/assets/magnify-pop/magnific-popup.css";
 import "@/public/assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css";
 

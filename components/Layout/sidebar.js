@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 function Sidebar() {
   return (
@@ -7,62 +8,16 @@ function Sidebar() {
       <div className="scroll">
         <ul className="list-unstyled nav-sidebar doc-nav">
           <li className="nav-item active">
-            <a href="#doc" className="nav-link">
+            <Link href="/#doc" className="nav-link">
               <img src="img/side-nav/smiles-icon.png" alt="" />
               Getting Started
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#shortcodes" className="nav-link">
+            <Link href="/authentication#auth" className="nav-link">
               <img src="img/side-nav/briefcase.png" alt="briefcase" />
-              Shortcodes
-            </a>
-            <ul className="list-unstyled dropdown_nav">
-              <li className="nav-item">
-                <a href="#tabs" className="nav-link">
-                  Tab
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#accordian" className="nav-link">
-                  Accordian
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#notice" className="nav-link">
-                  Notices
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#tooltip" className="nav-link">
-                  Tooltip
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#table" className="nav-link">
-                  Table
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#lightbox" className="nav-link">
-                  Lightbox
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#footnote" className="nav-link">
-                  Footnote
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#can-use" className="nav-link">
-                  Can I Use
-                </a>
-              </li>
-            </ul>
-            <span className="icon">
-              <i className="icon_plus" />
-              <i className="icon_minus-06" />
-            </span>
+           Authentication
+            </Link>            
           </li>
           <li className="nav-item">
             <a href="#tour" className="nav-link">

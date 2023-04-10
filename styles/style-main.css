@@ -113,9 +113,9 @@ table tr td p:last-child {
   margin-bottom: 0;
 }
 
-pre[class*=language-] > code {
-  border-left: 5px solid rgba(76, 76, 241, 0.8);
-}
+/* pre[class*=language-] > code { */
+  /* border-left: 5px solid rgba(76, 76, 241, 0.8); */
+/* } */
 
 .pt_100 {
   padding-top: 100px;
@@ -7249,48 +7249,48 @@ body:not(.onepage-doc) .sticky_menu .doc_documentation_area.body_fixed .doc_righ
 }
 
 /*========== typography_content css ========*/
-.doc .code-preview {
-  border: 1px solid #e5ebef;
-  padding: 20px;
-  box-shadow: 0 3px 6px 0 rgba(4, 73, 89, 0.02);
-  position: relative;
-}
-.doc .code-preview #header-name {
-  margin-bottom: 0;
-}
-.doc .code-preview img {
-  max-width: 100%;
-}
-.doc .code-preview.video_img {
-  display: inline-block;
-}
-.doc .code-toolbar .snippets {
-  margin-bottom: 0;
-}
-.doc .code-toolbar .snippets code {
-  margin-bottom: 20px;
-}
-.doc .code_item {
-  padding-top: 15px;
-}
-.doc .code_item p a {
-  color: #4c4cf1;
-}
-
-.vjs-iframe-blocker {
-  display: none;
-}
-
-.video-js {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 640px;
-  height: 360px;
-}
-.video-js .mfp-close {
-  right: -55px;
-  top: -10px;
-}
+/* .doc .code-preview { */
+  /* border: 1px solid #e5ebef; */
+  /* padding: 20px; */
+  /* box-shadow: 0 3px 6px 0 rgba(4, 73, 89, 0.02); */
+  /* position: relative; */
+/* } */
+/* .doc .code-preview #header-name { */
+  /* margin-bottom: 0; */
+/* } */
+/* .doc .code-preview img { */
+  /* max-width: 100%; */
+/* } */
+/* .doc .code-preview.video_img { */
+  /* display: inline-block; */
+/* } */
+/* .doc .code-toolbar .snippets { */
+  /* margin-bottom: 0; */
+/* } */
+/* .doc .code-toolbar .snippets code { */
+  /* margin-bottom: 20px; */
+/* } */
+/* .doc .code_item { */
+  /* padding-top: 15px; */
+/* } */
+/* .doc .code_item p a { */
+  /* color: #4c4cf1; */
+/* } */
+/*  */
+/* .vjs-iframe-blocker { */
+  /* display: none; */
+/* } */
+/*  */
+/* .video-js { */
+  /* margin: 0 auto; */
+  /* width: 100%; */
+  /* max-width: 640px; */
+  /* height: 360px; */
+/* } */
+/* .video-js .mfp-close { */
+  /* right: -55px; */
+  /* top: -10px; */
+/* } */
 
 /*============ Sticky Nav doc css ================*/
 .sticky-nav-doc:not(.onepage-doc) .body_fixed .doc_rightsidebar, .sticky-nav-doc:not(.onepage-doc) .body_fixed .doc_left_sidebarlist {

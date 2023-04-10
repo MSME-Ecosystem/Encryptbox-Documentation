@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
- 
+import Footer from "./footer";
 import Navbar from "./navbar";
 
 export default function HomeLayout({ children }) {
@@ -27,12 +27,11 @@ export default function HomeLayout({ children }) {
         <meta property="og:type" content="article" />
       </Head>
 
-     
-        <div className="body_wrapper sticky_menu">
-            <Navbar/>
-          <main>{children}</main>
-        </div>
-      
+      <div className="body_wrapper sticky_menu">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </div>
     </>
   );
 }
