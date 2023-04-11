@@ -87,7 +87,7 @@ export default function Home() {
                     </div>
                   </div>
                    
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="col-6 d-flex justify-content-start align-items-center">
                     <button className="fs-20 btn btn-xs btn-primary light me-1">
                         Previous
@@ -98,7 +98,7 @@ export default function Home() {
                         Next
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </article>
 
                 <Feedback/>
