@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>EncryptBox Documentation -- Voucher Transactions</title>
+
+    <meta property="og:site_name" content="EncryptBox API Documentatio" />
+    <meta property="og:site" content="https://docs.encryptbox.co.uk" />
+    <meta property="og:title" content="EncryptBox" />
+    <meta
+      property="og:description"
+      content="Voucher/Crypto On-Ramp & Off-Ramp"
+    />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="https://encryptbox.co.uk/register" />
+    <meta property="og:type" content="article" />
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="assets/bootstrap/css/bootstrap-select.min.css"
+    />
+    <!-- icon css-->
+    <link rel="stylesheet" href="assets/elagent-icon/style.css" />
+    <link rel="stylesheet" href="assets/niceselectpicker/nice-select.css" />
+    <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
+    <link rel="stylesheet" href="assets/animation/animate.css" />
+    <link
+      rel="stylesheet"
+      href="assets/tooltipster/css/tooltipster.bundle.css"
+    />
+    <link rel="stylesheet" href="assets/prism/prism.css" />
+    <link rel="stylesheet" href="assets/prism/prism-coy.css" />
+    <link rel="stylesheet" href="assets/magnify-pop/magnific-popup.css" />
+    <link
+      rel="stylesheet"
+      href="assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css"
+    />
+    <link rel="stylesheet" href="css/style-main.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body
+    class="doc full-width-doc sticky-nav-doc onepage-doc"
+    data-spy="scroll"
+    data-target=".navbar"
+    data-offset="-120"
+  >
+    <div class="body_wrapper sticky_menu">
+      <nav class="navbar navbar-expand-lg menu_one dark_menu sticky-nav">
+        <div class="container-fluid pl-60 pr-60">
+          <a class="navbar-brand header_logo" href="index-2.html">
+            <img
+              class="first_logo sticky_logo main_logo"
+              src="img/logo-dark.png"
+              srcset="img/logo-dark.png"
+              alt="logo"
+            />
+            <img
+              class="white_logo"
+              src="/img/logo-light.png"
+              srcset="/img/logo-light.png"
+              alt="logo"
+            />
+          </a>
+
+          <div class="mobile-dark-mode d-lg-none">
+            <label for="something" class="tab-btn tab-btns">
+              <i style="font-size: 30px;" class="icon_lightbulb_alt"></i>
+            </label>
+            <label for="something" class="tab-btn"> </label>
+          </div>
+          <div class="mobile-dark-mode d-lg-none">
+            <label for="something" class="tab-btn tab-btns">
+              <!--    <i style="font-size: 30px;" class="icon_lightbulb_alt"></i>   -->
+            </label>
+            <label for="something" class="tab-btn"> </label>
+          </div>
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="menu_toggle">
+              <span class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span class="hamburger-cross">
+                <span></span>
+                <span></span>
+              </span>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav menu ml-auto">
+              <li class="nav-item dropdown submenu">
+                <a href="#" class="nav-link dropdown-toggle">Home</a>
+              </li>
+              <li class="nav-item dropdown submenu">
+                <a href="#" class="nav-link dropdown-toggle">Company</a>
+              </li>
+              <li class="nav-item dropdown submenu">
+                <a href="#" class="nav-link dropdown-toggle">Services</a>
+              </li>
+            </ul>
+            <div class="right-nav">
+              <a
+                class="nav_btn tp_btn m-2"
+                href="https://dashboard.encryptbox.co.uk/"
+              >
+                Merchant Login
+              </a>
+              <a
+                class="nav_btn tp_btn ml-3"
+                href="https://dashboard.encryptbox.co.uk/signup"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Get Started
+              </a>
+
+              <div
+                class="px-2 js-darkmode-btn d-flex align-items-center justify-content-center"
+                title="Toggle dark mode"
+              >
+                <label for="something" class="tab-btn tab-btns">
+                  <i style="font-size: 30px;" class="icon_lightbulb_alt"></i>
+                </label>
+                <input
+                  type="checkbox"
+                  name="something"
+                  id="something"
+                  class="dark_mode_switcher"
+                />
+                <label for="something" class="tab-btn"> </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="doc_documentation_area onepage_doc_area" id="sticky_doc">
+        <div class="container-fluid pl-60 pr-60">
+          <div class="row doc-container">
+            <div class="col-lg-2 doc_mobile_menu doc-sidebar display_none">
+              <aside class="doc_left_sidebarlist">
+                <h3 class="nav_title">Doc Navigation</h3>
+                <div class="scroll">
+                  <ul class="list-unstyled nav-sidebar doc-nav">
+                    <li class="nav-item active">
+                      <a href="#doc" class="nav-link"
+                        ><img
+                          src="img/onepage-icon/smiles-icon.png"
+                          alt=""
+                        />Getting Started</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a href="auth.html" class="nav-link"
+                        ><img
+                          src="img/side-nav/briefcase.png"
+                          alt="briefcase"
+                        />Authentication</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a href="account.html" class="nav-link"
+                        ><img src="img/side-nav/chat1.png" alt="" />Users</a
+                      >
+                      <span class="icon">
+                        <i class="arrow_carrot-right"></i>
+                        <i class="arrow_carrot-down"></i>
+                      </span>
+                      <ul class="list-unstyled dropdown_nav">
+                        <li class="nav-item">
+                          <a href="/account.html#createUsers" class="nav-link">
+                            Create Users</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="/account.html#enterpriseDetails"
+                            class="nav-link"
+                          >
+                            Personal Details</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="/account.html#userDetails" class="nav-link">
+                            Users Details</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="/account.html#multipleUserDetails"
+                            class="nav-link"
+                          >
+                            All Users</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a href="voucher.html" class="nav-link"
+                        ><img src="img/side-nav/document.png" alt="" /> Voucher
+                        Transactions</a
+                      >
+                      <span class="icon">
+                        <i class="arrow_carrot-right"></i>
+                        <i class="arrow_carrot-down"></i>
+                      </span>
+                      <ul class="list-unstyled dropdown_nav">
+                        <li class="nav-item">
+                          <a href="./voucher.html#getBalance" class="nav-link"
+                            >Get Balance</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="./voucher.html#transferVoucher"
+                            class="nav-link"
+                            >Transfer</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="./voucher.html#sellVoucher" class="nav-link"
+                            >Sell Voucher</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="./voucher.html#customerTransactions"
+                            class="nav-link"
+                            >Customer Transactions</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="./voucher.html#multipleUsersTransactions"
+                            class="nav-link"
+                            >All Transactions</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a href="crypto.html" class="nav-link"
+                        ><img src="img/side-nav/clock.png" alt="" />Crypto
+                        Transactions</a
+                      >
+                      <span class="icon">
+                        <i class="arrow_carrot-right"></i>
+                        <i class="arrow_carrot-down"></i>
+                      </span>
+                      <ul class="list-unstyled dropdown_nav">
+                        <li class="nav-item">
+                          <a href="./crypto.html#getbuyrate" class="nav-link"
+                            >Get Buy Rate</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="./crypto.html#getsellrate" class="nav-link"
+                            >Get Sell Rate</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="./crypto.html#buycoin" class="nav-link"
+                            >Buy Coin</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a href="dispute-api.html" class="nav-link"
+                        ><img src="img/side-nav/support.png" alt="" />Manage
+                        Dispute
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="documentation_info" id="">
+                <!--doc-->
+                <article class="documentation_body doc-section pt-0" id="auth">
+                  <div class="shortcode_title">
+                    <h2>Voucher Wallet</h2>
+                    <p>
+                      <span>
+                        The EncryptBox Voucher Wallet endpoints can be used to
+                        initiate voucher credit transactions as well as view
+                        voucher credit transactional information
+                      </span>
+                    </p>
+
+                    <div class="shortcode_info pt-0" id="getBalance">
+                      <div class="shortcode_title">
+                        <h4 class="s_title">Get Balance</h4>
+                        <p>
+                          Purpose: To view available voucher credit a users have
+                          in their voucher wallet
+                        </p>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {api-domain}/api/{version}/{environment}/getbalance
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <span
+                              >token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <blockquote class="media notice notice-success">
+                        <div class="media-body">
+                          <h5>Note</h5>
+                          <ul>
+                            <li>
+                              <p>
+                                You can only fetch the balance of one user at a
+                                time
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                Refer to
+                                <a href="account.html#userDetails">
+                                  User details API
+                                </a>
+                                to fetch more information about a user
+                              </p>
+                            </li>
+                          </ul>
+                        </div>
+                      </blockquote>
+                      <div class="code_item">
+                        <h4 class="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+
+                        <pre class="snippet">
+                                <code class="language-json" data-lang="json">
+                                    {
+                                        "status": "202",
+                                        "customer_id": "fcfa7433-a92f-55ac-8c4d-bf727e278117",
+                                        "message": "Customer Balance",
+                                        "time": "2023-04-11 13:53:43",
+                                        "last_balance": 100,
+                                        "current_balance": 0
+                                    } </code>
+                            </pre>
+                      </div>
+
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div class="alert media message_alert fade show">
+                          <div class="media-body">
+                            <p>202</p>
+                            <span>Balance fetched successfully</span>
+                          </div>
+                        </div>
+                        <div
+                          class="alert media message_alert alert-info fade show"
+                        >
+                          <div class="media-body">
+                            <h5 class="m-0">404</h5>
+                            <p>Customer doesn't exist</p>
+                          </div>
+                        </div>
+                        <div
+                          class="alert media message_alert alert-info fade show"
+                        >
+                          <div class="media-body">
+                            <h5 class="m-0">405</h5>
+                            <p>Unauthorized Request</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="shortcode_info" id="transferVoucher">
+                      <div class="shortcode_title">
+                        <h4 class="s_title">Transfer Voucher</h4>
+                        <p>
+                          Purpose: To transfer voucher from one user to another
+                        </p>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {api-domain}/api/{version}/{environment}/transfer
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <span
+                              >token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="code_item">
+                        <h4 class="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+                        <pre class="snippet">
+                                <code class="language-json" data-lang="json">
+                                    {
+                                        "statuscode": "202",
+                                        "status": true,
+                                        "message": "Transfer successful",
+                                        "current_balance": 4900
+                                    }
+                                     </code>
+                            </pre>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div class="alert media message_alert fade show">
+                          <div class="media-body">
+                            <p>202</p>
+                            <span>Transfer Successful</span>
+                          </div>
+                        </div>
+
+                        <div
+                          class="alert media message_alert alert-info fade show"
+                        >
+                          <div class="media-body">
+                            <h5 class="m-0">406</h5>
+                            <p>Account Doesn't exist</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="shortcode_info pt-0" id="sellVoucher">
+                      <div class="shortcode_title">
+                        <h4 class="s_title">Sell Voucher</h4>
+                        <p>
+                          Purpose: To sell voucher in exchange for Fiat currency
+                        </p>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {api-domain}/api/{version}/{environment}/sell
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <span
+                              >token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="code_item">
+                        <h4 class="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+
+                        <pre class="snippet">
+                                  <code class="language-json" data-lang="json">
+                                    {
+                                        "statuscode": "202",
+                                        "status": "Transaction Succesful",
+                                        "account": {
+                                            "tran_reference": "fgfgf-uifvklf-jkdkckdfe",
+                                            "message": "Balance",
+                                            "current_balance": 38987,
+                                            "date": "2023-04-11 14:47:11"
+                                        }
+                                    } </code>
+                              </pre>
+                      </div>
+
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div class="alert media message_alert fade show">
+                          <div class="media-body">
+                            <p>202</p>
+                            <span>Balance fetched successfully</span>
+                          </div>
+                        </div>
+                        <div
+                          class="alert media message_alert alert-info fade show"
+                        >
+                          <div class="media-body">
+                            <h5 class="m-0">404</h5>
+                            <p>Customer doesn't exist</p>
+                          </div>
+                        </div>
+                        <div
+                          class="alert media message_alert alert-info fade show"
+                        >
+                          <div class="media-body">
+                            <h5 class="m-0">405</h5>
+                            <p>Unauthorized Request</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="shortcode_info" id="customerTransactions">
+                      <div class="shortcode_title">
+                        <h4 class="s_title">
+                          Fetch transaction history of a customer
+                        </h4>
+                        <p>
+                          Purpose: To fetch the transaction history of a
+                          customer. This is only restricted to transactions
+                          within a year
+                        </p>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {api-domain}/api/{version}/{environment}/gethistory
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <span
+                              >token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="code_item">
+                        <h4 class="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+
+                        <pre class="snippet">
+                                  <code class="language-json" data-lang="json">
+                                    {
+                                        "status": "202",
+                                        "message": "A Customer Transaction History",
+                                        "data": [
+                                            {
+                                                "transaction_id": "weqw452001001.3ae93f83-2308-4604-9059-7ebc19713317",
+                                                "source_acct": "mikexon12@gmail.com",
+                                                "destination_acct": "matrix@gmail.com",
+                                                "trans_type": "credit",
+                                                "transaction_desc": "this is my first test",
+                                                "transaction_amount": "100.00",
+                                                "initial_balance": "0.00",
+                                                "current_balance": "100.00",
+                                                "created": "2023-04-06T12:55:40.000Z"
+                                            }
+                                        ]
+                                    }
+                                     </code>
+                              </pre>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div class="alert media message_alert fade show">
+                          <div class="media-body">
+                            <p>202</p>
+                            <span>History Fetched</span>
+                          </div>
+                        </div>
+
+                        <div
+                          class="alert media message_alert alert-info fade show"
+                        >
+                          <div class="media-body">
+                            <h5 class="m-0">404</h5>
+                            <p>Customer doesn't exist</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="shortcode_info" id="multipleUsersTransactions">
+                      <div class="shortcode_title">
+                        <h4 class="s_title">
+                          Fetch all users transaction histories
+                        </h4>
+                        <p>
+                          Purpose: To fetch the summary of transactions carried
+                          out by users within a period of time
+                        </p>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {api-domain}/api/{version}/{environment}/gethistories
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          class="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div class="media-body">
+                            <span
+                              >token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="code_item">
+                        <h4 class="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+
+                        <pre class="snippet">
+                                    <code class="language-json" data-lang="json">
+                                        {
+                                            "status": "202",
+                                            "message": "All Cusromer Transaction History",
+                                            "data": [
+                                                {
+                                                    "transaction_id": "weqw452001001.3ae93f83-2308-4604-9059-7ebc19713317",
+                                                    "source_acct": "mikexon12@gmail.com",
+                                                    "destination_acct": "matrix@gmail.com",
+                                                    "trans_type": "credit",
+                                                    "transaction_desc": "this is my first test",
+                                                    "transaction_amount": "100.00",
+                                                    "initial_balance": "0.00",
+                                                    "current_balance": "100.00",
+                                                    "created": "2023-04-06T12:55:40.000Z"
+                                                },
+                                                {
+                                                    "transaction_id": "weqw452001001.ed10989a-5367-4942-ac70-da08f148c1ef",
+                                                    "source_acct": "mikexon12@gmail.com",
+                                                    "destination_acct": "matrix@gmail.com",
+                                                    "trans_type": "transfer",
+                                                    "transaction_desc": "this is my first test",
+                                                    "transaction_amount": "100.00",
+                                                    "initial_balance": "5000.00",
+                                                    "current_balance": "4900.00",
+                                                    "created": "2023-04-06T12:55:40.000Z"
+                                                }
+                                            ]
+                                        }
+                                         </code>
+                                </pre>
+                      </div>
+                      <div class="shortcode_title">
+                        <h4 class="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div class="alert media message_alert fade show">
+                          <div class="media-body">
+                            <p>200</p>
+                            <span>OK</span>
+                          </div>
+                        </div>
+                        <div
+                          class="alert media message_alert alert-info fade show"
+                        >
+                          <div class="media-body">
+                            <h5 class="m-0">406</h5>
+                            <p>Account doesn't exist</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <div id="sample-getBalance ">
+                <div class="shortcode_title">
+                  <div class="alert media message_alert fade show" role="alert">
+                    <div class="media-body">
+                      <h5 class="s_title">
+                        Get Balance Endpoint
+                        <span class="badge badge-primary">Post</span>
+                      </h5>
+                      <span>/api/v1/live/getbalance</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="shortcode_title">
+                  <h4 class="s_title">Sample Request</h4>
+                  <div class="media-body">
+                    <pre class="snippet">
+                                <code class="language-nodejs" data-lang="nodejs">
+                                    axios.post('https://dashboard.encryptbox.co.uk/api/v1/live/getbalance', 
+                                        {
+                                            "customer_id": "fcfa7433-a92f-55ac-8c4d-bf727e278117"
+                                        }, {
+                                        headers: {
+                                          'token': 'putyourpublickeyhere',
+                                          'Content-Type': 'application/json'
+                                        }
+                                      })
+                                       </code>
+                            </pre>
+                  </div>
+                </div>
+              </div>
+
+              <div id="sample-transferVoucher">
+                <div class="shortcode_title">
+                  <div class="alert media message_alert fade show" role="alert">
+                    <div class="media-body">
+                      <h5 class="s_title">
+                        Voucher Transfer Endpoint
+                        <span class="badge badge-primary">POST</span>
+                      </h5>
+                      <p>/api/v1/live/transfer</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="shortcode_title">
+                  <h4 class="s_title">Sample Request</h4>
+                  <div class="media-body">
+                    <pre class="snippet">
+                                  <code class="language-json" data-lang="json">
+                                    axios.post('https://dashboard.encryptbox.co.uk/api/v1/live/getbalance', 
+                                    {
+                                        "reference": "",
+                                        "sender_id": "dfa8a298-592e-5225-abf6-3eb2304c3b5e",
+                                        "receiver_email": "matrix@gmail.com",
+                                        "amount": "100",
+                                        "currency": "NGN",
+                                        "transaction_desc": "this is my first test"
+                                    },
+                                     {
+                                    headers: {
+                                      'token': 'putyourpublickeyhere',
+                                      'Content-Type': 'application/json'
+                                    }
+                                  })</code>
+                              </pre>
+                  </div>
+                </div>
+              </div>
+              <div id="sample-sellVoucher">
+                <div class="shortcode_title">
+                  <div class="alert media message_alert fade show" role="alert">
+                    <div class="media-body">
+                      <h5 class="s_title">
+                        Voucher Sale Endpoint
+                        <span class="badge badge-primary">POST</span>
+                      </h5>
+                      <p>/api/v1/live/sell</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="shortcode_title">
+                  <h4 class="s_title">Sample Request</h4>
+                  <div class="media-body">
+                    <pre class="snippet">
+                                  <code class="language-json" data-lang="json">
+                                    axios.post('https://dashboard.encryptbox.co.uk/api/v1/live/sell', 
+                                    {
+                                        "reference": "fgfgf-uifvklf-jkdkckdfe",
+                                        "sender_id": "fcfa7433-a92f-55ac-8c4d-bf727e278117",
+                                        "bank_name": "GT Bank",
+                                        "bank_code": "809",
+                                        "account_name":"Alao Miracle",
+                                        "account_number": "123457890",
+                                        "amount": "1348888888888888888888",
+                                        "currency": "NGN",
+                                        "transaction_desc": "I am sending you this precious gift"
+                                    },
+                                     {
+                                    headers: {
+                                      'token': 'putyourpublickeyhere',
+                                      'Content-Type': 'application/json'
+                                    }
+                                  })</code>
+                              </pre>
+                  </div>
+                </div>
+              </div>
+              <div id="sample-customerTransactions">
+                <div class="shortcode_title">
+                  <div class="alert media message_alert fade show" role="alert">
+                    <div class="media-body">
+                      <h5 class="s_title">
+                        Get a customer transaction History Endpoint
+                        <span class="badge badge-primary">Post</span>
+                      </h5>
+                      <p>/api/v1/live/gethistory</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="shortcode_title">
+                  <h4 class="s_title">Sample Request</h4>
+                  <div class="media-body">
+                    <pre class="snippet">
+                                  <code class="language-json" data-lang="json">
+                                    axios.post('https://dashboard.encryptbox.co.uk/api/v1/live/gethistory',  
+                                    {
+                                        "customer_id": "90c119d8-3498-530f-add1-b4e841a2c2d8",
+                                        "start_date":"2022-12-22",
+                                        "end_date":"2023-12-23"
+                                    }, {
+                                        headers: {
+                                          'token': 'putyourpublickeyhere',
+                                          'Content-Type': 'application/json'
+                                        }
+                                      }) </code>
+                              </pre>
+                  </div>
+                </div>
+              </div>
+              <div id="sample-multipleUsersTransactions">
+                <div class="shortcode_title">
+                  <div class="alert media message_alert fade show" role="alert">
+                    <div class="media-body">
+                      <h5 class="s_title">
+                        Get customer transactions Endpoint
+                        <span class="badge badge-primary">POST</span>
+                      </h5>
+                      <p>/api/v1/live/gethistories</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="shortcode_title">
+                  <h4 class="s_title">Sample Request</h4>
+                  <div class="media-body">
+                    <pre class="snippet">
+                                  <code class="language-json" data-lang="json">
+                                    axios.post('https://dashboard.encryptbox.co.uk/api/v1/live/getcustomers', 
+                                        { 
+                                            "start_date":"2022-12-22",
+                                            "end_date":"2023-12-23"
+                                        },
+                                        headers: {
+                                          'token': 'putyourpublickeyhere'
+                                        }
+                                      }) </code>
+                              </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="simple_footer">
+        <div class="container">
+          <p class="text-center">
+            ©
+            <script>
+              Date().getFullYear();
+            </script>
+            All Rights Reserved by <a href="inde.html">EncryptBox</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Back to top button -->
+    <a id="back-to-top" title="Back to Top"></a>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="js/pre-loader.js"></script>
+    <script src="assets/bootstrap/js/popper.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="js/parallaxie.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/anchor.js"></script>
+    <script src="assets/wow/wow.min.js"></script>
+    <script src="assets/prism/prism.js"></script>
+    <script src="assets/niceselectpicker/jquery.nice-select.min.js"></script>
+    <script src="assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/magnify-pop/jquery.magnific-popup.min.js"></script>
+    <script src="assets/tooltipster/js/tooltipster.bundle.min.js"></script>
+    <script src="assets/font-size/js/rv-jquery-fontsize-2.0.3.js"></script>
+    <script src="assets/video/video.min.js"></script>
+    <script src="assets/video/wistia.js"></script>
+    <script src="../../unpkg.com/ionicons%405.4.0/dist/ionicons.js"></script>
+    <script src="js/onpage-menu.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
