@@ -95,24 +95,8 @@ export default function Home() {
                         <Code code={auth} language={JSON} />
                       </div>
                     </div>
-                  </div>
+                    <p>API requests made without authentication will fail with the status code 407: Invalid Key. All API requests must be made over HTTPS.</p>
 
-                  <div className="container">
-                    <div className="row justify-content-between">
-                      <div className="col-5">
-                        <Link href="/" className="steps-panel">
-                          Previous
-                        </Link>
-                      </div>
-
-                      <div className="col-5 ">
-                      <div className="col-5">
-                        <Link href="/" className="steps-panel">
-                          Next
-                        </Link>
-                      </div>
-                      </div>
-                    </div>
                   </div>
                 </article>
 

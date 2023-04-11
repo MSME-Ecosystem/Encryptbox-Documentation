@@ -20,21 +20,37 @@ function Sidebar() {
             </Link>            
           </li>
           <li className="nav-item">
-            <a href="#tour" className="nav-link">
+            <Link href="/account#account" className="nav-link">
               <img src="img/side-nav/chat1.png" alt="" />
-              Create Account
-            </a>
+              Users
+            </Link>
             <span className="icon">
               <i className="icon_plus" />
               <i className="icon_minus-06" />
             </span>
             <ul className="list-unstyled dropdown_nav">
               <li className="nav-item">
-                <a href="#pointing" className="nav-link">
-                  Image Hotspots
+                <a href="#createUsers" className="nav-link">
+                 Create Users
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#enterpriseDetails" className="nav-link">
+                Personal Details
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#enterpriseDetails" className="nav-link">
+                Enterprise Details
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#userDetails" className="nav-link">
+                All Users
                 </a>
               </li>
             </ul>
+            
           </li>
           <li className="nav-item">
             <a href="#typography" className="nav-link">
