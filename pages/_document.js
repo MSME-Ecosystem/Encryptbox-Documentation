@@ -7,8 +7,9 @@ export default function Document() {
       <body
         className="doc full-width-doc sticky-nav-doc onepage-doc"
         data-spy="scroll"
-        data-target=".navbar"
-        data-offset="-120"
+        data-target="#navbar-example3"
+        data-scroll-animation="true"
+        data-offset="70"
       >
         <Main />
         <NextScript />
@@ -16,3 +17,11 @@ export default function Document() {
     </Html>
   );
 }
+
+
+{/* <body
+className="doc full-width-doc sticky-nav-doc onepage-doc"
+data-spy="scroll"
+data-target=".navbar"
+data-offset="-120"
+> */}

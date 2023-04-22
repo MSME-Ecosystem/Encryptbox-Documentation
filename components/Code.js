@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 function Code({ code, language }) {
   const [isCopied, setIsCopied] = useState(false);
   const cookieValue = Cookies.get("body_dark");
-  console.log(cookieValue);
+  // console.log(cookieValue);
   return (
     <div className="media-body">
       <div className={styles.parentDiv}>

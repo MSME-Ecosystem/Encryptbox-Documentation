@@ -4,6 +4,7 @@ import Sidebar from "@/components/Layout/sidebar";
 import Script from "next/script";
 import Code from "@/components/Code";
 import Feedback from "@/components/Feedback";
+import { Waypoint } from "react-waypoint";
 
 export default function Voucher() {
   const getbalance = `{
@@ -76,7 +77,7 @@ export default function Voucher() {
     ],
   }`;
   const getbalanceEp = `axios.post(
-        "https://dashboard.encryptbox.co.uk/api/v1/live/getacustomer",
+        "https://dashboard.encryptbox.co.uk/api/v1/live/getbalance",
         {
           customer_id: "fcfa7433-a92f-55ac-8c4d-bf727e78117",
         },
@@ -87,38 +88,130 @@ export default function Voucher() {
           },
         }
       )`;
-  const transferEp = `axios.get(
-        "https://dashboard.encryptbox.co.uk/api/v1/live/getcustomers",
+  const transferEp = `axios.post(
+        "https://dashboard.encryptbox.co.uk/api/v1/live/transfer",
+        {
+          "reference": "hje-kjke-kjkjeker-ekjreytuje",
+          "sender_id": "90c119d8-3498-530f-add1-b4e841a2c2d8",
+          "receiver_email": "mikxenon@gmail.com",
+          "amount": "800",
+          "currency": "NGN",
+          "transaction_desc": "this is my first test"      
+        },
         {
           headers: {
             token: "putyourpublickeyhere",
           },
         }
       )`;
-  const sellEp = `axios.get(
-        "https://dashboard.encryptbox.co.uk/api/v1/live/getcustomers",
+  const sellEp = `axios.post(
+        "https://dashboard.encryptbox.co.uk/api/v1/live/sell",
+        {
+          "reference": "Doe-uifvklf-jkdkckdfe",
+          "sender_id": "90c119d8-3498-530f-add1-b4e841a2c2d8",
+          "bank_name": "GT Bank",
+          "bank_code": "809",
+          "account_name":"John Doee",
+          "account_number": "123457890",
+          "amount": "13",
+          "currency": "NGN",
+          "transaction_desc": "I am sending you this precious gift"
+        },
         {
           headers: {
             token: "putyourpublickeyhere",
           },
         }
       )`;
-  const gethistoryEp = `axios.get(
-        "https://dashboard.encryptbox.co.uk/api/v1/live/getcustomers",
+  const gethistoryEp = `axios.post(
+        "https://dashboard.encryptbox.co.uk/api/v1/live/gethistory",
+        {
+          "type": "3",
+         "start_date": "2023-01-22",
+         "end_date": "2023-06-04"
+        },
         {
           headers: {
             token: "putyourpublickeyhere",
           },
         }
       )`;
-  const gethistoriesEp = `axios.get(
-        "https://dashboard.encryptbox.co.uk/api/v1/live/getcustomers",
+  const gethistoriesEp = `axios.post(
+        "https://dashboard.encryptbox.co.uk/api/v1/live/gethistories",
+        {
+          "type":2,
+          "customer_id": "90c119d8-3498-530f-add1-b4e841a2c2d8",
+          "start_date":"2023-01-01",
+          "end_date":"2023-12-31"
+        },
         {
           headers: {
             token: "putyourpublickeyhere",
           },
         }
       )`;
+
+  const [isSampleBalanceActive, setIsSampleBalanceActive] = useState(false);
+  const [isSampleTransferActive, setIsSampleTransferActive] = useState(false);
+  const [isSampleSellActive, setIsSampleSellActive] = useState(false);
+
+  const [isSamplecustomerTxActive, setIsSamplecustomerTxActive] = useState(
+    false
+  );
+  const [isSamplemultipleTxActive, setIsSamplemultipleTxActive] = useState(
+    false
+  );
+
+  const handleWaypointEnter = (id) => {
+    if (id === "sample-getBalance") {
+      setIsSampleBalanceActive(true);
+      setIsSampleTransferActive(false);
+      setIsSampleSellActive(false);
+      setIsSamplecustomerTxActive(false);
+      setIsSamplemultipleTxActive(false);
+    } else if (id === "sample-transferVoucher") {
+      setIsSampleBalanceActive(false);
+      setIsSampleTransferActive(true);
+      setIsSampleSellActive(false);
+      setIsSamplecustomerTxActive(false);
+      setIsSamplemultipleTxActive(false);
+    } else if (id === "sample-sellVoucher") {
+      setIsSampleBalanceActive(false);
+      setIsSampleTransferActive(false);
+      setIsSampleSellActive(true);
+      setIsSamplecustomerTxActive(false);
+      setIsSamplemultipleTxActive(false);
+    } else if (id === "sample-customerTransactions") {
+      setIsSampleBalanceActive(false);
+      setIsSampleTransferActive(false);
+      setIsSampleSellActive(false);
+      setIsSamplecustomerTxActive(true);
+      setIsSamplemultipleTxActive(false);
+    } else if (id === "sample-multipleUsersTransactions") {
+      setIsSampleBalanceActive(false);
+      setIsSampleTransferActive(false);
+      setIsSampleSellActive(false);
+      setIsSamplecustomerTxActive(false);
+      setIsSamplemultipleTxActive(true);
+    } else {
+      setIsSampleBalanceActive(false);
+      setIsSampleTransferActive(false);
+      setIsSampleSellActive(false);
+      setIsSamplecustomerTxActive(false);
+      setIsSamplecustomerTxActive(false);
+    }
+    /*   setIsWaypointActive(true);
+    const myOtherDiv = document.getElementById(id);
+    console.log("myotherDiv", myOtherDiv); */
+    /*  myOtherDiv.classList.add("sticky-top"); */
+  };
+
+  const handleWaypointLeave = (id) => {
+    // console.log("LeaveID: ", id);
+    // setIsWaypointActive(false);
+    // const myOtherDiv = document.getElementById(id);
+    //  myOtherDiv.classList.remove("sticky-top");
+  };
   return (
     <>
       <section
@@ -146,369 +239,408 @@ export default function Voucher() {
                         voucher credit transactional information
                       </span>
                     </p>
-                    <div className="shortcode_info pt-0" id="getBalance">
-                      <div className="shortcode_title">
-                        <h4 className="s_title">Get Balance</h4>
-                        <p>
-                          Purpose: To view available voucher credit a users have
-                          in their voucher wallet
-                        </p>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Request Details
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <h5>Request URL</h5>
-                            <p>
-                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                              environment{"}"}/getbalance
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Header
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <span>
-                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <blockquote className="media notice notice-success">
-                        <div className="media-body">
-                          <h5>Note</h5>
-                          <ul>
-                            <li>
-                              <p>
-                                You can only fetch the balance of one user at a
-                                time
-                              </p>
-                            </li>
-                            <li>
-                              <p>
-                                Refer to
-                                <a href="/account#userDetails">
-                                  User details API
-                                </a>
-                                to fetch more information about a user
-                              </p>
-                            </li>
-                          </ul>
-                        </div>
-                      </blockquote>
-                      <div className="code_item">
-                        <h4 className="c_head load-order-2" id="inline">
-                          Success Sample
-                        </h4>
-                        <Code code={getbalance} language="json"></Code>
-                       
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Sample Response Codes
-                        </h4>
-                        <div className="alert media message_alert fade show">
-                          <div className="media-body">
-                            <p>202</p>
-                            <span>Balance fetched successfully</span>
-                          </div>
-                        </div>
-                        <div className="alert media message_alert alert-info fade show">
-                          <div className="media-body">
-                            <h5 className="m-0">404</h5>
-                            <p>Customer doesn&apos;t exist</p>
-                          </div>
-                        </div>
-                        <div className="alert media message_alert alert-info fade show">
-                          <div className="media-body">
-                            <h5 className="m-0">405</h5>
-                            <p>Unauthorized Request</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="shortcode_info" id="transferVoucher">
-                      <div className="shortcode_title">
-                        <h4 className="s_title">Transfer Voucher</h4>
-                        <p>
-                          Purpose: To transfer voucher from one user to another
-                        </p>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Request Details
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <h5>Request URL</h5>
-                            <p>
-                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                              environment{"}"}/transfer
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Header
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <span>
-                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="code_item">
-                        <h4 className="c_head load-order-2" id="inline">
-                          Success Sample
-                        </h4>
-                        <Code code={transfer} language="json"></Code>                      
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Sample Response Codes
-                        </h4>
-                        <div className="alert media message_alert fade show">
-                          <div className="media-body">
-                            <p>202</p>
-                            <span>Transfer Successful</span>
-                          </div>
-                        </div>
-                        <div className="alert media message_alert alert-info fade show">
-                          <div className="media-body">
-                            <h5 className="m-0">406</h5>
-                            <p>Account Doesn&apos;t exist</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="shortcode_info pt-0" id="sellVoucher">
-                      <div className="shortcode_title">
-                        <h4 className="s_title">Sell Voucher</h4>
-                        <p>
-                          Purpose: To sell voucher in exchange for Fiat currency
-                        </p>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Request Details
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <h5>Request URL</h5>
-                            <p>
-                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                              environment{"}"}/sell
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Header
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <span>
-                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="code_item">
-                        <h4 className="c_head load-order-2" id="inline">
-                          Success Sample
-                        </h4>
-                        <Code code={sell} language="json"></Code> 
-                      
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Sample Response Codes
-                        </h4>
-                        <div className="alert media message_alert fade show">
-                          <div className="media-body">
-                            <p>202</p>
-                            <span>Balance fetched successfully</span>
-                          </div>
-                        </div>
-                        <div className="alert media message_alert alert-info fade show">
-                          <div className="media-body">
-                            <h5 className="m-0">404</h5>
-                            <p>Customer doesn&apos;t exist</p>
-                          </div>
-                        </div>
-                        <div className="alert media message_alert alert-info fade show">
-                          <div className="media-body">
-                            <h5 className="m-0">405</h5>
-                            <p>Unauthorized Request</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="shortcode_info" id="customerTransactions">
-                      <div className="shortcode_title">
-                        <h4 className="s_title">
-                          Fetch transaction history of a customer
-                        </h4>
-                        <p>
-                          Purpose: To fetch the transaction history of a
-                          customer. This is only restricted to transactions
-                          within a year
-                        </p>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Request Details
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <h5>Request URL</h5>
-                            <p>
-                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                              environment{"}"}/gethistory
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Header
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <span>
-                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="code_item">
-                        <h4 className="c_head load-order-2" id="inline">
-                          Success Sample
-                        </h4>
-                        <Code code={gethistory} language="json"></Code> 
-                        
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Sample Response Codes
-                        </h4>
-                        <div className="alert media message_alert fade show">
-                          <div className="media-body">
-                            <p>202</p>
-                            <span>History Fetched</span>
-                          </div>
-                        </div>
-                        <div className="alert media message_alert alert-info fade show">
-                          <div className="media-body">
-                            <h5 className="m-0">404</h5>
-                            <p>Customer doesn&apos;t exist</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="shortcode_info"
-                      id="multipleUsersTransactions"
+
+                    {/* Get Balance */}
+                    <Waypoint
+                      onEnter={() => handleWaypointEnter("sample-getBalance")}
+                      onLeave={() => handleWaypointLeave("sample-getBalance")}
                     >
-                      <div className="shortcode_title">
-                        <h4 className="s_title">
-                          Fetch all users transaction histories
-                        </h4>
-                        <p>
-                          Purpose: To fetch the summary of transactions carried
-                          out by users within a period of time
-                        </p>
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Request Details
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
+                      <div className="shortcode_info pt-0" id="getBalance">
+                        <div className="shortcode_title">
+                          <h4 className="s_title">Get Balance</h4>
+                          <p>
+                            Purpose: To view available voucher credit a users
+                            have in their voucher wallet
+                          </p>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Request Details
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <h5>Request URL</h5>
+                              <p>
+                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                                environment{"}"}/getbalance
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Header
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <span>
+                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <blockquote className="media notice notice-success">
                           <div className="media-body">
-                            <h5>Request URL</h5>
-                            <p>
-                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                              environment{"}"}/gethistories
-                            </p>
+                            <h5>Note</h5>
+                            <ul>
+                              <li>
+                                <p>
+                                  You can only fetch the balance of one user at
+                                  a time
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  Refer to
+                                  <a href="/account#userDetails">
+                                    User details API
+                                  </a>
+                                  to fetch more information about a user
+                                </p>
+                              </li>
+                            </ul>
+                          </div>
+                        </blockquote>
+                        <div className="code_item">
+                          <h4 className="c_head load-order-2" id="inline">
+                            Success Sample
+                          </h4>
+                          <Code code={getbalance} language="json"></Code>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Sample Response Codes
+                          </h4>
+                          <div className="alert media message_alert fade show">
+                            <div className="media-body">
+                              <p>202</p>
+                              <span>Balance fetched successfully</span>
+                            </div>
+                          </div>
+                          <div className="alert media message_alert alert-info fade show">
+                            <div className="media-body">
+                              <h5 className="m-0">404</h5>
+                              <p>Customer doesn&apos;t exist</p>
+                            </div>
+                          </div>
+                          <div className="alert media message_alert alert-info fade show">
+                            <div className="media-body">
+                              <h5 className="m-0">405</h5>
+                              <p>Unauthorized Request</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Header
-                        </h4>
-                        <div
-                          className="alert media message_alert fade show"
-                          role="alert"
-                        >
-                          <div className="media-body">
-                            <span>
-                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                            </span>
+                    </Waypoint>
+                    <Waypoint
+                      onEnter={() =>
+                        handleWaypointEnter("sample-transferVoucher")
+                      }
+                      onLeave={() =>
+                        handleWaypointLeave("sample-transferVoucher")
+                      }
+                    >
+                      <div className="shortcode_info" id="transferVoucher">
+                        <div className="shortcode_title">
+                          <h4 className="s_title">Transfer Voucher</h4>
+                          <p>
+                            Purpose: To transfer voucher from one user to
+                            another
+                          </p>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Request Details
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <h5>Request URL</h5>
+                              <p>
+                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                                environment{"}"}/transfer
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Header
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <span>
+                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="code_item">
+                          <h4 className="c_head load-order-2" id="inline">
+                            Success Sample
+                          </h4>
+                          <Code code={transfer} language="json"></Code>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Sample Response Codes
+                          </h4>
+                          <div className="alert media message_alert fade show">
+                            <div className="media-body">
+                              <p>202</p>
+                              <span>Transfer Successful</span>
+                            </div>
+                          </div>
+                          <div className="alert media message_alert alert-info fade show">
+                            <div className="media-body">
+                              <h5 className="m-0">406</h5>
+                              <p>Account Doesn&apos;t exist</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div className="code_item">
-                        <h4 className="c_head load-order-2" id="inline">
-                          Success Sample
-                        </h4>
-                        <Code code={gethistories} language="json"></Code>                        
-                      </div>
-                      <div className="shortcode_title">
-                        <h4 className="s_title" id="tab2">
-                          Sample Response Codes
-                        </h4>
-                        <div className="alert media message_alert fade show">
-                          <div className="media-body">
-                            <p>200</p>
-                            <span>OK</span>
+                    </Waypoint>
+
+                    <Waypoint
+                      onEnter={() => handleWaypointEnter("sample-sellVoucher")}
+                      onLeave={() => handleWaypointLeave("sample-sellVoucher")}
+                    >
+                      <div className="shortcode_info pt-0" id="sellVoucher">
+                        <div className="shortcode_title">
+                          <h4 className="s_title">Sell Voucher</h4>
+                          <p>
+                            Purpose: To sell voucher in exchange for Fiat
+                            currency
+                          </p>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Request Details
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <h5>Request URL</h5>
+                              <p>
+                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                                environment{"}"}/sell
+                              </p>
+                            </div>
                           </div>
                         </div>
-                        <div className="alert media message_alert alert-info fade show">
-                          <div className="media-body">
-                            <h5 className="m-0">406</h5>
-                            <p>Account doesn&apos;t exist</p>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Header
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <span>
+                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="code_item">
+                          <h4 className="c_head load-order-2" id="inline">
+                            Success Sample
+                          </h4>
+                          <Code code={sell} language="json"></Code>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Sample Response Codes
+                          </h4>
+                          <div className="alert media message_alert fade show">
+                            <div className="media-body">
+                              <p>202</p>
+                              <span>Balance fetched successfully</span>
+                            </div>
+                          </div>
+                          <div className="alert media message_alert alert-info fade show">
+                            <div className="media-body">
+                              <h5 className="m-0">404</h5>
+                              <p>Customer doesn&apos;t exist</p>
+                            </div>
+                          </div>
+                          <div className="alert media message_alert alert-info fade show">
+                            <div className="media-body">
+                              <h5 className="m-0">405</h5>
+                              <p>Unauthorized Request</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Waypoint>
+                    <Waypoint
+                      onEnter={() =>
+                        handleWaypointEnter("sample-customerTransactions")
+                      }
+                      onLeave={() =>
+                        handleWaypointLeave("sample-customerTransactions")
+                      }
+                    >
+                      <div className="shortcode_info" id="customerTransactions">
+                        <div className="shortcode_title">
+                          <h4 className="s_title">
+                            Fetch transaction history of a customer
+                          </h4>
+                          <p>
+                            Purpose: To fetch the transaction history of a
+                            customer. This is only restricted to transactions
+                            within a year
+                          </p>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Request Details
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <h5>Request URL</h5>
+                              <p>
+                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                                environment{"}"}/gethistory
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Header
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <span>
+                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="code_item">
+                          <h4 className="c_head load-order-2" id="inline">
+                            Success Sample
+                          </h4>
+                          <Code code={gethistory} language="json"></Code>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Sample Response Codes
+                          </h4>
+                          <div className="alert media message_alert fade show">
+                            <div className="media-body">
+                              <p>202</p>
+                              <span>History Fetched</span>
+                            </div>
+                          </div>
+                          <div className="alert media message_alert alert-info fade show">
+                            <div className="media-body">
+                              <h5 className="m-0">404</h5>
+                              <p>Customer doesn&apos;t exist</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Waypoint>
+                    <Waypoint
+                      onEnter={() =>
+                        handleWaypointEnter("sample-multipleUsersTransactions")
+                      }
+                      onLeave={() =>
+                        handleWaypointLeave("sample-multipleUsersTransactions")
+                      }
+                    >
+                      <div
+                        className="shortcode_info"
+                        id="multipleUsersTransactions"
+                      >
+                        <div className="shortcode_title">
+                          <h4 className="s_title">
+                            Fetch all users transaction histories
+                          </h4>
+                          <p>
+                            Purpose: To fetch the summary of transactions
+                            carried out by users within a period of time
+                          </p>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Request Details
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <h5>Request URL</h5>
+                              <p>
+                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                                environment{"}"}/gethistories
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Header
+                          </h4>
+                          <div
+                            className="alert media message_alert fade show"
+                            role="alert"
+                          >
+                            <div className="media-body">
+                              <span>
+                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="code_item">
+                          <h4 className="c_head load-order-2" id="inline">
+                            Success Sample
+                          </h4>
+                          <Code code={gethistories} language="json"></Code>
+                        </div>
+                        <div className="shortcode_title">
+                          <h4 className="s_title" id="tab2">
+                            Sample Response Codes
+                          </h4>
+                          <div className="alert media message_alert fade show">
+                            <div className="media-body">
+                              <p>200</p>
+                              <span>OK</span>
+                            </div>
+                          </div>
+                          <div className="alert media message_alert alert-info fade show">
+                            <div className="media-body">
+                              <h5 className="m-0">406</h5>
+                              <p>Account doesn&apos;t exist</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Waypoint>
                   </div>
                 </article>
                 <Feedback />
@@ -516,123 +648,151 @@ export default function Voucher() {
             </div>
 
             <div className="col-lg-4 col-md-4">
-              <div id="sample-getBalance ">
-                <div className="shortcode_title">
-                  <div
-                    className="alert media message_alert fade show"
-                    role="alert"
-                  >
+              {isSampleBalanceActive ? (
+                <div className="sample-code-sticky" id="sample-getBalance">
+                  <div className="shortcode_title">
+                    {" "}
+                    <div
+                      className="alert media message_alert fade show"
+                      role="alert"
+                    >
+                      <div className="media-body">
+                        <h5 className="s_title">
+                          Get Balance Endpoint&nbsp;
+                          <span className="badge badge-primary">Post</span>
+                        </h5>
+                        <span>/api/v1/live/getbalance</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="shortcode_title">
+                    <h4 className="s_title">Sample Request</h4>
                     <div className="media-body">
-                      <h5 className="s_title">
-                        Get Balance Endpoint&nbsp;
-                        <span className="badge badge-primary">Post</span>
-                      </h5>
-                      <span>/api/v1/live/getbalance</span>
+                      <Code code={getbalanceEp} language="json"></Code>
                     </div>
                   </div>
                 </div>
-                <div className="shortcode_title">
-                  <h4 className="s_title">Sample Request</h4>
-                  <div className="media-body">
-                  <Code code={getbalanceEp} language="json"></Code>                        
- 
+              ) : isSampleTransferActive ? (
+                <div className="sample-code-sticky" id="sample-transferVoucher">
+                  <div className="shortcode_title">
+                    <div
+                      className="alert media message_alert fade show"
+                      role="alert"
+                    >
+                      <div className="media-body">
+                        <h5 className="s_title">
+                          Voucher Transfer Endpoint&nbsp;
+                          <span className="badge badge-primary">POST</span>
+                        </h5>
+                        <p>/api/v1/live/transfer</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div id="sample-transferVoucher">
-                <div className="shortcode_title">
-                  <div
-                    className="alert media message_alert fade show"
-                    role="alert"
-                  >
+                  <div className="shortcode_title">
+                    <h4 className="s_title">Sample Request</h4>
                     <div className="media-body">
-                      <h5 className="s_title">
-                        Voucher Transfer Endpoint&nbsp;
-                        <span className="badge badge-primary">POST</span>
-                      </h5>
-                      <p>/api/v1/live/transfer</p>
+                      <Code code={transferEp} language="json"></Code>
                     </div>
                   </div>
                 </div>
-                <div className="shortcode_title">
-                  <h4 className="s_title">Sample Request</h4>
-                  <div className="media-body">
-                  <Code code={transferEp} language="json"></Code>                        
-
-                   
+              ) : isSampleSellActive ? (
+                <div className="sample-code-sticky" id="sample-sellVoucher">
+                  <div className="shortcode_title">
+                    <div
+                      className="alert media message_alert fade show"
+                      role="alert"
+                    >
+                      <div className="media-body">
+                        <h5 className="s_title">
+                          Voucher Sale Endpoint&nbsp;
+                          <span className="badge badge-primary">POST</span>
+                        </h5>
+                        <p>/api/v1/live/sell</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div id="sample-sellVoucher">
-                <div className="shortcode_title">
-                  <div
-                    className="alert media message_alert fade show"
-                    role="alert"
-                  >
+                  <div className="shortcode_title">
+                    <h4 className="s_title">Sample Request</h4>
                     <div className="media-body">
-                      <h5 className="s_title">
-                        Voucher Sale Endpoint&nbsp;
-                        <span className="badge badge-primary">POST</span>
-                      </h5>
-                      <p>/api/v1/live/sell</p>
+                      <Code code={sellEp} language="json"></Code>
                     </div>
                   </div>
                 </div>
-                <div className="shortcode_title">
-                  <h4 className="s_title">Sample Request</h4>
-                  <div className="media-body">
-                  <Code code={sellEp} language="json"></Code>                        
-
-                    
+              ) : isSamplecustomerTxActive ? (
+                <div className="sample-code-sticky" id="sample-customerTransactions">
+                  <div className="shortcode_title">
+                    <div
+                      className="alert media message_alert fade show"
+                      role="alert"
+                    >
+                      <div className="media-body">
+                        <h5 className="s_title">
+                          Get a customer transaction History Endpoint&nbsp;
+                          <span className="badge badge-primary">Post</span>
+                        </h5>
+                        <p>/api/v1/live/gethistory</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div id="sample-customerTransactions">
-                <div className="shortcode_title">
-                  <div
-                    className="alert media message_alert fade show"
-                    role="alert"
-                  >
+                  <div className="shortcode_title">
+                    <h4 className="s_title">Sample Request</h4>
                     <div className="media-body">
-                      <h5 className="s_title">
-                        Get a customer transaction History Endpoint&nbsp;
-                        <span className="badge badge-primary">Post</span>
-                      </h5>
-                      <p>/api/v1/live/gethistory</p>
+                      <Code code={gethistoryEp} language="json"></Code>
                     </div>
                   </div>
                 </div>
-                <div className="shortcode_title">
-                  <h4 className="s_title">Sample Request</h4>
-                  <div className="media-body">
-                  <Code code={gethistoryEp} language="json"></Code>                        
-
-                    
+              ) : isSamplecustomerTxActive ? (
+                <div className="sample-code-sticky" id="sample-customerTransactions">
+                  <div className="shortcode_title">
+                    <div
+                      className="alert media message_alert fade show"
+                      role="alert"
+                    >
+                      <div className="media-body">
+                        <h5 className="s_title">
+                          Get a customer transaction History Endpoint&nbsp;
+                          <span className="badge badge-primary">Post</span>
+                        </h5>
+                        <p>/api/v1/live/gethistory</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div id="sample-multipleUsersTransactions">
-                <div className="shortcode_title">
-                  <div
-                    className="alert media message_alert fade show"
-                    role="alert"
-                  >
+                  <div className="shortcode_title">
+                    <h4 className="s_title">Sample Request</h4>
                     <div className="media-body">
-                      <h5 className="s_title">
-                        Get customer transactions Endpoint&nbsp;
-                        <span className="badge badge-primary">POST</span>
-                      </h5>
-                      <p>/api/v1/live/gethistories</p>
+                      <Code code={gethistoryEp} language="json"></Code>
                     </div>
                   </div>
                 </div>
-                <div className="shortcode_title">
-                  <h4 className="s_title">Sample Request</h4>
-                  <div className="media-body">
-                  <Code code={gethistoriesEp} language="json"></Code>
+              ) : isSamplemultipleTxActive ? (
+                <div
+                  className="sample-code-sticky"
+                  id="sample-multipleUsersTransactions"
+                >
+                  <div className="shortcode_title">
+                    <div
+                      className="alert media message_alert fade show"
+                      role="alert"
+                    >
+                      <div className="media-body">
+                        <h5 className="s_title">
+                          Get customer transactions Endpoint&nbsp;
+                          <span className="badge badge-primary">POST</span>
+                        </h5>
+                        <p>/api/v1/live/gethistories</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="shortcode_title">
+                    <h4 className="s_title">Sample Request</h4>
+                    <div className="media-body">
+                      <Code code={gethistoriesEp} language="json"></Code>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

@@ -16566,5 +16566,11 @@ body.body_dark .sticky_menu .menu_one .menu > .nav-item .nav-link, body.body_dar
 .body_dark .card_tagged li a:hover {
   opacity: 0.9;
 }
+.sample-code-sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20vh;
+  z-index: 1020; /* ensure the element is above other elements */
+}
 
  

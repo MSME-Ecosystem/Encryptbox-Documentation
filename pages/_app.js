@@ -1,8 +1,10 @@
 import "@/styles/responsive.css";
 import "@/styles/style.css";
 
-import "@/public/assets/bootstrap/css/bootstrap.min.css";
-import "@/public/assets/bootstrap/css/bootstrap-select.min.css";
+  // import 'bootstrap/dist/css/bootstrap.css'
+
+ import "@/public/assets/bootstrap/css/bootstrap.min.css";
+ import "@/public/assets/bootstrap/css/bootstrap-select.min.css";
 
 import "@/public/assets/elagent-icon/style.css";
 import "@/public/assets/niceselectpicker/nice-select.css";

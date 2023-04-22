@@ -115,9 +115,9 @@ Home.getLayout = function getLayout(page) {
     <>
       <HomeLayout>{page}</HomeLayout>
       <Script src="/js/jquery-3.5.1.min.js" id="jquery" strategy="beforeInteractive"></Script> 
-      <Script src="/assets/bootstrap/js/popper.min.js" id="popper" strategy="beforeInteractive"></Script>
-      <Script src="/assets/bootstrap/js/bootstrap.min.js" id="boostrapmin" strategy="beforeInteractive"></Script>
-      <Script src="/assets/bootstrap/js/bootstrap-select.min.js" id="boottrapselect" strategy="beforeInteractive"></Script>
+      {/* <Script src="/assets/bootstrap/js/popper.min.js" id="popper" strategy="beforeInteractive"></Script>{/*  */}
+      {/* <Script src="/assets/bootstrap/js/bootstrap.min.js" id="boostrapmin" strategy="beforeInteractive"></Script> */}
+      {/* <Script src="/assets/bootstrap/js/bootstrap-select.min.js" id="boottrapselect" strategy="beforeInteractive"></Script> */} 
       <Script src="/js/parallaxie.js" id="paralaxie" strategy="beforeInteractive"></Script>
       <Script src="/js/TweenMax.min.js" id="TweenMax" strategy="beforeInteractive"></Script>
       <Script src="/js/anchor.js" id="anchor" strategy="beforeInteractive"></Script>

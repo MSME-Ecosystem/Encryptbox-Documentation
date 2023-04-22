@@ -60,7 +60,7 @@ export default function Crypto() {
     {
       reference: "reference96665568",
       sender_id: "fcfa7433-a92f-55ac-8c4d-bf727e278117",
-      amount: "100",
+      amount: "100git ",
       currency: "msme",
       wallet_address: "0xBed65907D3cE38a36E09897ab2f709E2B9563aeFF",
       transaction_desc: "Testing busd on encryptbox",
