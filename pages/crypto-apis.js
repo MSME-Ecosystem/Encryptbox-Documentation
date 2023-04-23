@@ -4,78 +4,85 @@ import Sidebar from "@/components/Layout/sidebar";
 import Script from "next/script";
 import Code from "@/components/Code";
 import Feedback from "@/components/Feedback";
- 
+import { Waypoint } from "react-waypoint";
+import { TXFee, TXFeeEp, availableCoin, buycoin, buycoinEp, getavailablecoinEp, getbuyrate, getbuyrateEp, getsellrate, getsellrateEp, verifyTransaction, verifyTransactionEp } from "@/components/endpoints";
 
 export default function Crypto() {
-  const getbuyrate = `{
-    statuscode: "202",
-    status: true,
-    coin: 2.600780234070221,
-    rate: 769,
-    updated_at: "2023-04-11T10:58:45.000Z",
-  }`;
-  const getsellrate = `{
-    statuscode: "202",
-    status: true,
-    amount: 11550,
-    rate: 770,
-    updated_at: "2023-04-06T12:23:52.000Z",
-  }`;
-  const buycoin = `{
-    statuscode: "202",
-    status: true,
-    message: "Transfer successful",
-    current_balance: 220,
-    coin_quantity: 0.12990387113535984,
-  }`;
-  const getbuyrateEp = `axios.post(
-    "https://dashboard.encryptbox.co.uk/api/v1/live/getbuyrate",
-    {
-      amount: 2000,
-      coin_name: "bus",
-      status: "buy",
-    },
-    {
-      headers: {
-        token: "putyourpublickeyhere",
-        "Content-Type": "application/json",
-      },
+   
+
+  const [sampleVerifyTX, setIssampleVerifyTX] = useState(false);
+
+  const [sampleAvailableCoin, setIssampleAvailableCoin] = useState(false);
+
+  const [sampleGetbuyrate, setIsSampleBuyActive] = useState(false);
+  const [sampleGetsellrate, setIsSampleSellActive] = useState(false);
+  const [sampleGetTXFee, setsampleGetTXFeeActive] = useState(false);
+
+  const [sampleBuycoin, setIsSampleBuycoinActive] = useState(false);
+
+  const handleWaypointEnter = (id) => {
+    if (id === "sample-getavailablecoin") {
+      setIssampleAvailableCoin(true);
+      setIsSampleBuyActive(false);
+      setIsSampleSellActive(false);
+      setsampleGetTXFeeActive(false)
+      setIsSampleBuycoinActive(false);
+      setIssampleVerifyTX(false);
+    } else if (id === "sample-getbuyrate") {
+      setIssampleAvailableCoin(false);
+      setIsSampleBuyActive(true);
+      setIsSampleSellActive(false);
+      setsampleGetTXFeeActive(false)
+      setIsSampleBuycoinActive(false);
+      setIssampleVerifyTX(false);
+    } else if (id === "sample-getsellrate") {
+      setIssampleAvailableCoin(false);
+      setIsSampleBuyActive(false);
+      setIsSampleSellActive(true);
+      setsampleGetTXFeeActive(false)
+      setIsSampleBuycoinActive(false);
+      setIssampleVerifyTX(false);
+    } else if (id === "sample-getTXfee") {
+      setIssampleAvailableCoin(false);
+      setIsSampleBuyActive(false);
+      setIsSampleSellActive(false);
+      setsampleGetTXFeeActive(true)
+      setIsSampleBuycoinActive(false);
+      setIssampleVerifyTX(false);
+    } 
+    else if (id === "sample-buycoin") {
+      setIssampleAvailableCoin(false);
+      setIsSampleBuyActive(false);
+      setIsSampleSellActive(false);
+      setsampleGetTXFeeActive(false)
+      setIsSampleBuycoinActive(true);
+      setIssampleVerifyTX(false);
+    } else if (id === "sample-verifyTransaction") {
+      setIssampleAvailableCoin(false);
+      setIsSampleBuyActive(false);
+      setIsSampleSellActive(false);
+      setsampleGetTXFeeActive(false)
+      setIsSampleBuycoinActive(false);
+      setIssampleVerifyTX(true);
+    } else {
+      setIssampleAvailableCoin(false);
+      setIsSampleBuyActive(false);
+      setIsSampleSellActive(false);
+      setsampleGetTXFeeActive(false)
+      setIsSampleBuycoinActive(false);
+      setIssampleVerifyTX(false);
     }
-  )`;
-  const getsellrateEp = `axios.post(
-    "https://dashboard.encryptbox.co.uk/api/v1/live/getsellrate",
-    {
-      coin: 15,
-      coin_name: "busd",
-    },
-    {
-      headers: {
-        token: "putyourpublickeyhere",
-        "Content-Type": "application/json",
-      },
-    }
-  )`;
-  const buycoinEp = `axios.post(
-    "https://dashboard.encryptbox.co.uk/api/v1/live/buycoin",
-    {
-      reference: "reference96665568",
-      sender_id: "fcfa7433-a92f-55ac-8c4d-bf727e278117",
-      amount: "100git ",
-      currency: "msme",
-      wallet_address: "0xBed65907D3cE38a36E09897ab2f709E2B9563aeFF",
-      transaction_desc: "Testing busd on encryptbox",
-    },
-    {
-      headers: {
-        token: "putyourpublickeyhere",
-        "Content-Type": "application/json",
-      },
-    }
-  )`;
+  };
+
+  const handleWaypointLeave = (id) => {
+    // console.log("LeaveID: ", id);
+    // setIsWaypointActive(false);
+    // const myOtherDiv = document.getElementById(id);
+    //  myOtherDiv.classList.remove("sticky-top");
+  };
 
   return (
     <>
-      
       <section
         className="doc_documentation_area onepage_doc_area"
         id="sticky_doc"
@@ -102,288 +109,622 @@ export default function Crypto() {
                             to initiate crypto/voucher transactions
                           </span>
                         </p>
-                        <div className="shortcode_info pt-0" id="getbuyrate">
-                          <div className="shortcode_title">
-                            <h4 className="s_title">Get Buy Rate</h4>
-                            <p>
-                              Purpose: Know the current crypto currency buy
-                              price
-                            </p>
-                            <p>
-                              Note: You can only fetch the current buy price of
-                              our supported Crypto currencies. This can be
-                              achieve by passing the coin name to the
-                              <code>&quot;coin_name&quot;</code> payload
-                            </p>
-                          </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Request Details
-                            </h4>
-                            <div
-                              className="alert media message_alert fade show"
-                              role="alert"
-                            >
-                              <div className="media-body">
-                                <h5>Request URL</h5>
-                                <p>
-                                  {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
-                                  {"{"}
-                                  environment{"}"}/getbuyrate
-                                </p>
+                        <Waypoint
+                          onEnter={() =>
+                            handleWaypointEnter("sample-getavailablecoin")
+                          }
+                          onLeave={() =>
+                            handleWaypointLeave("sample-getavailablecoin")
+                          }
+                        >
+                          <div className="shortcode_info pt-0" id="getbuyrate">
+                            <div className="shortcode_title">
+                              <h4 className="s_title">Fetch Available Coin</h4>
+                              <p>
+                                Purpose: To fetch the coin list supported by
+                                EncryptBox
+                              </p>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Request Details
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <h5>Request URL</h5>
+                                  <p>
+                                    {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
+                                    {"{"}
+                                    environment{"}"}/availablecoin
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Header
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <span>
+                                    token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="code_item">
+                              <h4 className="c_head load-order-2" id="inline">
+                                Success Sample
+                              </h4>
+                              <Code code={availableCoin} language="json"></Code>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Sample Response Codes
+                              </h4>
+                              <div className="alert media message_alert fade show">
+                                <div className="media-body">
+                                  <p>202</p>
+                                  <span>
+                                    Available Coin Fetched successfully
+                                  </span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Header
-                            </h4>
-                            <div
-                              className="alert media message_alert fade show"
-                              role="alert"
-                            >
-                              <div className="media-body">
-                                <span>
-                                  token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                                </span>
+                        </Waypoint>
+                        <Waypoint
+                          onEnter={() =>
+                            handleWaypointEnter("sample-getbuyrate")
+                          }
+                          onLeave={() =>
+                            handleWaypointLeave("sample-getbuyrate")
+                          }
+                        >
+                          <div className="shortcode_info pt-0" id="getbuyrate">
+                            <div className="shortcode_title">
+                              <h4 className="s_title">Get Buy Rate</h4>
+                              <p>
+                                Purpose: Know the current crypto currency buy
+                                price
+                              </p>
+                              <p>
+                                Note: You can only fetch the current buy price
+                                of our supported Crypto currencies. This can be
+                                achieve by passing the coin name to the
+                                <code>&quot;coin_name&quot;</code> payload
+                              </p>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Request Details
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <h5>Request URL</h5>
+                                  <p>
+                                    {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
+                                    {"{"}
+                                    environment{"}"}/getbuyrate
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Header
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <span>
+                                    token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="code_item">
+                              <h4 className="c_head load-order-2" id="inline">
+                                Success Sample
+                              </h4>
+                              <Code code={getbuyrate} language="json"></Code>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Sample Response Codes
+                              </h4>
+                              <div className="alert media message_alert fade show">
+                                <div className="media-body">
+                                  <p>202</p>
+                                  <span>Price Fetched successfully</span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div className="code_item">
-                            <h4 className="c_head load-order-2" id="inline">
-                              Success Sample
-                            </h4>
-                            <Code code={getbuyrate} language="json"></Code>
-                          </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Sample Response Codes
-                            </h4>
-                            <div className="alert media message_alert fade show">
-                              <div className="media-body">
-                                <p>202</p>
-                                <span>Price Fetched successfully</span>
+                        </Waypoint>
+                        <Waypoint
+                          onEnter={() =>
+                            handleWaypointEnter("sample-getsellrate")
+                          }
+                          onLeave={() =>
+                            handleWaypointLeave("sample-getsellrate")
+                          }
+                        >
+                          <div className="shortcode_info" id="getsellrate">
+                            <div className="shortcode_title">
+                              <h4 className="s_title">Get Sell Rate</h4>
+                              <p>
+                                Purpose: To fetch the current Sell price of
+                                cypto currencies
+                              </p>
+                              <p>
+                                Note: You can only fetch the sell price of our
+                                supported Crypto currencies. This can be achieve
+                                by passing the coin name to the
+                                <code>&quot;coin_name&quot;</code> payload
+                              </p>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Request Details
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <h5>Request URL</h5>
+                                  <p>
+                                    {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
+                                    {"{"}
+                                    environment{"}"}/getsellrate
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Header
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <span>
+                                    token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="code_item">
+                              <h4 className="c_head load-order-2" id="inline">
+                                Success Sample
+                              </h4>
+                              <Code code={getsellrate} language="json"></Code>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Sample Response Codes
+                              </h4>
+                              <div className="alert media message_alert fade show">
+                                <div className="media-body">
+                                  <p>202</p>
+                                  <span>Successful</span>
+                                </div>
+                              </div>
+                              <div className="alert media message_alert alert-info fade show">
+                                <div className="media-body">
+                                  <h5 className="m-0">Invalid coin name</h5>
+                                  <p>
+                                    <code>
+                                      &quot;rates&quot;: &quot;error&quot;
+                                    </code>
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="shortcode_info" id="getsellrate">
-                          <div className="shortcode_title">
-                            <h4 className="s_title">Get Sell Rate</h4>
-                            <p>
-                              Purpose: To fetch the current Sell price of cypto
-                              currencies
-                            </p>
-                            <p>
-                              Note: You can only fetch the sell price of our
-                              supported Crypto currencies. This can be achieve
-                              by passing the coin name to the
-                              <code>&quot;coin_name&quot;</code> payload
-                            </p>
-                          </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Request Details
-                            </h4>
-                            <div
-                              className="alert media message_alert fade show"
-                              role="alert"
-                            >
-                              <div className="media-body">
-                                <h5>Request URL</h5>
-                                <p>
-                                  {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
-                                  {"{"}
-                                  environment{"}"}/getsellrate
-                                </p>
+                        </Waypoint>
+                        <Waypoint
+                          onEnter={() =>
+                            handleWaypointEnter("sample-getTXfee")
+                          }
+                          onLeave={() =>
+                            handleWaypointLeave("sample-getTXfee")
+                          }
+                        >
+                          <div className="shortcode_info" id="getTXfee">
+                            <div className="shortcode_title">
+                              <h4 className="s_title">Get Transaction Fee</h4>
+                              <p>
+                                Purpose: To fetch the transaction fees which would be charged for transactions at any time. It is important to note that transaction fees may vary from time to time.
+                              </p>                            
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Request Details
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <h5>Request URL</h5>
+                                  <p>
+                                    {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
+                                    {"{"}
+                                    environment{"}"}/getFee
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Header
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <span>
+                                    token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="code_item">
+                              <h4 className="c_head load-order-2" id="inline">
+                                Success Sample
+                              </h4>
+                              <Code code={TXFee} language="json"></Code>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Sample Response Codes
+                              </h4>
+                              <div className="alert media message_alert fade show">
+                                <div className="media-body">
+                                  <p>202</p>
+                                  <span>Successful</span>
+                                </div>
+                              </div>
+                              <div className="alert media message_alert alert-info fade show">
+                                <div className="media-body">
+                                  <h5 className="m-0">404</h5>
+                                  <p>
+                                  Coin does not exist
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Header
-                            </h4>
-                            <div
-                              className="alert media message_alert fade show"
-                              role="alert"
-                            >
-                              <div className="media-body">
-                                <span>
-                                  token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                                </span>
+                        </Waypoint>
+                        <Waypoint
+                          onEnter={() => handleWaypointEnter("sample-buycoin")}
+                          onLeave={() => handleWaypointLeave("sample-buycoin")}
+                        >
+                          <div className="shortcode_info pt-0" id="buycoin">
+                            <div className="shortcode_title">
+                              <h4 className="s_title">Buy Coin</h4>
+                              <p>
+                                Purpose: To purchase crypto using voucher
+                                credits
+                              </p>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Request Details
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <h5>Request URL</h5>
+                                  <p>
+                                    {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
+                                    {"{"}
+                                    environment{"}"}/buycoin
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Header
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <span>
+                                    token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="code_item">
+                              <h4 className="c_head load-order-2" id="inline">
+                                Success Sample
+                              </h4>
+                              <Code code={buycoin} language="json"></Code>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Sample Response Codes
+                              </h4>
+                              <div className="alert media message_alert fade show">
+                                <div className="media-body">
+                                  <p>202</p>
+                                  <span>Success</span>
+                                </div>
+                              </div>
+                              <div className="alert media message_alert alert-info fade show">
+                                <div className="media-body">
+                                  <h5 className="m-0">305</h5>
+                                  <p>Insufficient Balance</p>
+                                </div>
+                              </div>
+                              <div className="alert media message_alert alert-info fade show">
+                                <div className="media-body">
+                                  <h5 className="m-0">405</h5>
+                                  <p>Unauthorized Request</p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div className="code_item">
-                            <h4 className="c_head load-order-2" id="inline">
-                              Success Sample
-                            </h4>
-                            <Code code={getsellrate} language="json"></Code>
-                          </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Sample Response Codes
-                            </h4>
-                            <div className="alert media message_alert fade show">
-                              <div className="media-body">
-                                <p>202</p>
-                                <span>Successful</span>
+                        </Waypoint>
+                        <Waypoint
+                          onEnter={() =>
+                            handleWaypointEnter("sample-verifyTransaction")
+                          }
+                          onLeave={() =>
+                            handleWaypointLeave("sample-verifyTransaction")
+                          }
+                        >
+                          <div className="shortcode_info pt-0" id="buycoin">
+                            <div className="shortcode_title">
+                              <h4 className="s_title">Verify Transaction</h4>
+                              <p>
+                                Purpose: To fetch the details of a transaction
+                                carried out. This is usually queried with the
+                                transaction Id
+                              </p>
+                            </div>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Request Details
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <h5>Request URL</h5>
+                                  <p>
+                                    {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
+                                    {"{"}
+                                    environment{"}"}/verifytransaction
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <div className="alert media message_alert alert-info fade show">
-                              <div className="media-body">
-                                <h5 className="m-0">Invalid coin name</h5>
-                                <p>
-                                  <code>
-                                    &quot;rates&quot;: &quot;error&quot;
-                                  </code>
-                                </p>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Header
+                              </h4>
+                              <div
+                                className="alert media message_alert fade show"
+                                role="alert"
+                              >
+                                <div className="media-body">
+                                  <span>
+                                    token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                                  </span>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                        <div className="shortcode_info pt-0" id="buycoin">
-                          <div className="shortcode_title">
-                            <h4 className="s_title">Buy Coin</h4>
-                            <p>
-                              Purpose: To purchase crypto using voucher credits
-                            </p>
-                          </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Request Details
-                            </h4>
-                            <div
-                              className="alert media message_alert fade show"
-                              role="alert"
-                            >
-                              <div className="media-body">
-                                <h5>Request URL</h5>
-                                <p>
-                                  {"{"}api-domain{"}"}/api/{"{"}version{"}"}/
-                                  {"{"}
-                                  environment{"}"}/buycoin
-                                </p>
-                              </div>
+                            <div className="code_item">
+                              <h4 className="c_head load-order-2" id="inline">
+                                Success Sample
+                              </h4>
+                              <Code
+                                code={verifyTransaction}
+                                language="json"
+                              ></Code>
                             </div>
-                          </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Header
-                            </h4>
-                            <div
-                              className="alert media message_alert fade show"
-                              role="alert"
-                            >
-                              <div className="media-body">
-                                <span>
-                                  token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                                </span>
+                            <div className="shortcode_title">
+                              <h4 className="s_title" id="tab2">
+                                Sample Response Codes
+                              </h4>
+                              <div className="alert media message_alert fade show">
+                                <div className="media-body">
+                                  <p>202</p>
+                                  <span>Success</span>
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                          <div className="code_item">
-                            <h4 className="c_head load-order-2" id="inline">
-                              Success Sample
-                            </h4>
-                            <Code code={buycoin} language="json"></Code>
-                          </div>
-                          <div className="shortcode_title">
-                            <h4 className="s_title" id="tab2">
-                              Sample Response Codes
-                            </h4>
-                            <div className="alert media message_alert fade show">
-                              <div className="media-body">
-                                <p>202</p>
-                                <span>Success</span>
-                              </div>
-                            </div>
-                            <div className="alert media message_alert alert-info fade show">
-                              <div className="media-body">
-                                <h5 className="m-0">305</h5>
-                                <p>Insufficient Balance</p>
-                              </div>
-                            </div>
-                            <div className="alert media message_alert alert-info fade show">
-                              <div className="media-body">
-                                <h5 className="m-0">405</h5>
-                                <p>Unauthorized Request</p>
+                              <div className="alert media message_alert alert-info fade show">
+                                <div className="media-body">
+                                  <h5 className="m-0">404</h5>
+                                  <p>No transaction found</p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </Waypoint>
                       </div>
                     </article>
                     <Feedback />
                   </div>
                 </div>
                 <div className="col-lg-5 col-md-5">
-                  <div id="sample-getbuyrate ">
-                    <div className="shortcode_title">
-                      <div
-                        className="alert media message_alert fade show"
-                        role="alert"
-                      >
+                  {sampleAvailableCoin ? (
+                    <div
+                      className="sample-code-sticky"
+                      id="sample-getavailablecoin"
+                    >
+                      <div className="shortcode_title">
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5 className="s_title">
+                              Get Available Coin Endpoint&nbsp;
+                              <span className="badge badge-primary">Get</span>
+                            </h5>
+                            <span>/api/v1/live/availablecoin</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Sample Request</h4>
                         <div className="media-body">
-                          <h5 className="s_title">
-                            Get Buy Rate Endpoint&nbsp;
-                            <span className="badge badge-primary">Post</span>
-                          </h5>
-                          <span>/api/v1/live/getbuyrate</span>
+                          <Code
+                            code={getavailablecoinEp}
+                            language="json"
+                          ></Code>
                         </div>
                       </div>
                     </div>
-                    <div className="shortcode_title">
-                      <h4 className="s_title">Sample Request</h4>
-                      <div className="media-body">
-                        <Code code={getbuyrateEp} language="json"></Code>
+                  ) : sampleGetbuyrate ? (
+                    <div className="sample-code-sticky" id="sample-getbuyrate">
+                      <div className="shortcode_title">
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5 className="s_title">
+                              Get Buy Rate Endpoint&nbsp;
+                              <span className="badge badge-primary">Post</span>
+                            </h5>
+                            <span>/api/v1/live/getbuyrate</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div id="sample-getsellrate">
-                    <div className="shortcode_title">
-                      <div
-                        className="alert media message_alert fade show"
-                        role="alert"
-                      >
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Sample Request</h4>
                         <div className="media-body">
-                          <h5 className="s_title">
-                            Get Sell Rate Endpoint&nbsp;
-                            <span className="badge badge-primary">POST</span>
-                          </h5>
-                          <p>/api/v1/live/getsellrate</p>
+                          <Code code={getbuyrateEp} language="json"></Code>
                         </div>
                       </div>
                     </div>
-                    <div className="shortcode_title">
-                      <h4 className="s_title">Sample Request</h4>
-                      <div className="media-body">
-                        <Code code={getsellrateEp} language="json"></Code>
+                  ) : sampleGetsellrate ? (
+                    <div className="sample-code-sticky" id="sample-getsellrate">
+                      <div className="shortcode_title">
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5 className="s_title">
+                              Get Sell Rate Endpoint&nbsp;
+                              <span className="badge badge-primary">POST</span>
+                            </h5>
+                            <p>/api/v1/live/getsellrate</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div id="sample-buycoin">
-                    <div className="shortcode_title">
-                      <div
-                        className="alert media message_alert fade show"
-                        role="alert"
-                      >
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Sample Request</h4>
                         <div className="media-body">
-                          <h5 className="s_title">
-                            Buy Coin Endpoint&nbsp;
-                            <span className="badge badge-primary">POST</span>
-                          </h5>
-                          <p>/api/v1/live/buycoin</p>
+                          <Code code={getsellrateEp} language="json"></Code>
                         </div>
                       </div>
                     </div>
-                    <div className="shortcode_title">
-                      <h4 className="s_title">Sample Request</h4>
-                      <div className="media-body">
-                        <Code code={buycoinEp} language="json"></Code>
+                  ) : sampleGetTXFee ? (
+                    <div className="sample-code-sticky" id="sample-getTXfee">
+                      <div className="shortcode_title">
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5 className="s_title">
+                              Get Sell Rate Endpoint&nbsp;
+                              <span className="badge badge-primary">POST</span>
+                            </h5>
+                            <p>/api/v1/live/getFee</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Sample Request</h4>
+                        <div className="media-body">
+                          <Code code={TXFeeEp} language="json"></Code>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ) : sampleBuycoin ? (
+                    <div className="sample-code-sticky" id="sample-buycoin">
+                      <div className="shortcode_title">
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5 className="s_title">
+                              Buy Coin Endpoint&nbsp;
+                              <span className="badge badge-primary">POST</span>
+                            </h5>
+                            <p>/api/v1/live/buycoin</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Sample Request</h4>
+                        <div className="media-body">
+                          <Code code={buycoinEp} language="json"></Code>
+                        </div>
+                      </div>
+                    </div>
+                  ) : sampleVerifyTX ? (
+                    <div
+                      className="sample-code-sticky"
+                      id="sample-verifyTransaction"
+                    >
+                      <div className="shortcode_title">
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5 className="s_title">
+                              Verify Transaction Endpoint&nbsp;
+                              <span className="badge badge-primary">POST</span>
+                            </h5>
+                            <p>/api/v1/live/verifytransaction</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Sample Request</h4>
+                        <div className="media-body">
+                          <Code
+                            code={verifyTransactionEp}
+                            language="json"
+                          ></Code>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>

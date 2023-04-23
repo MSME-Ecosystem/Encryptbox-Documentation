@@ -125,6 +125,12 @@ function Sidebar() {
               </ul>
             </li>
             <li className="nav-item">
+              <Link href="/history" className="nav-link">
+                <img src="img/side-nav/doc2.png" alt="" />
+                History
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link href="/dispute-api" className="nav-link">
                 <img src="img/side-nav/support.png" alt="" />
                 Manage Dispute
