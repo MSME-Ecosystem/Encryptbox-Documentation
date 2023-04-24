@@ -319,7 +319,7 @@ export default function Voucher() {
                   <div className="shortcode_title">
                     <h4 className="s_title">Sample Request</h4>
                     <div className="media-body">
-                      <Code code={gethistoriesEp} language="json"></Code>
+                      <Code code={gethistoryEp} language="json"></Code>
                     </div>
                   </div>
                 </div>

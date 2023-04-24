@@ -2,14 +2,13 @@ import React from "react";
 import Link from "next/link";
 
 function Sidebar() {
-  return (
- 
+  return ( 
       <aside className="doc_left_sidebarlist">
         <h3 className="nav_title">Doc Navigation</h3>
         <div className="scroll">
           <ul className="list-unstyled nav-sidebar doc-nav">
             <li className="nav-item active">
-              <Link href="#doc" className="nav-link">               
+              <Link href="/#doc" className="nav-link">               
                 Getting Started
               </Link>
             </li>
@@ -24,10 +23,10 @@ function Sidebar() {
                 <img src="img/side-nav/chat1.png" alt="" />
                 Users
               </Link>
-              <span className="icon">
+             {/*  <span className="icon">
                 <i className="arrow_carrot-right"></i>
                 <i className="arrow_carrot-down"></i>
-              </span>
+              </span> */}
               <ul className="list-unstyled dropdown_nav">
                 <li className="nav-item">
                   <Link href="/account-apis#createUsers" className="nav-link">
@@ -59,10 +58,10 @@ function Sidebar() {
                 <img src="img/side-nav/document.png" alt="" />
                 Voucher Transactions
               </Link>
-              <span className="icon">
+            {/*   <span className="icon">
                 <i className="arrow_carrot-right"></i>
                 <i className="arrow_carrot-down"></i>
-              </span>
+              </span> */}
               <ul className="list-unstyled dropdown_nav">
                 <li className="nav-item">
                   <Link href="/voucher-apis#getBalance" className="nav-link">
@@ -102,10 +101,10 @@ function Sidebar() {
                 <img src="img/side-nav/clock.png" alt="" />
                 Crypto Transactions
               </Link>
-              <span className="icon">
+             {/*  <span className="icon">
                 <i className="arrow_carrot-right"></i>
                 <i className="arrow_carrot-down"></i>
-              </span>
+              </span> */}
               <ul className="list-unstyled dropdown_nav">
                 <li className="nav-item">
                   <Link href="/crypto-apis#getbuyrate" className="nav-link">

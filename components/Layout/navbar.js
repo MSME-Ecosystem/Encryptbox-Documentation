@@ -21,18 +21,18 @@ function Navbar() {
               alt="logo"
             />
           </Link>
-          <div className="mobile-dark-mode d-lg-none">
+        {/*   <div className="mobile-dark-mode d-lg-none">
             <label htmlFor="something" className="tab-btn tab-btns">
               <i style={{ fontSize: "30px" }} className="icon_lightbulb_alt" />
             </label>
             <label htmlFor="something" className="tab-btn"></label>
-          </div>
-          <div className="mobile-dark-mode d-lg-none">
+          </div> */}
+        {/*   <div className="mobile-dark-mode d-lg-none">
             <label htmlFor="something" className="tab-btn tab-btns">
-              {/*    <i style="font-size: 30px;" class="icon_lightbulb_alt"></i>   */}
+               <i style="font-size: 30px;" class="icon_lightbulb_alt"></i>   
             </label>
             <label htmlFor="something" className="tab-btn"></label>
-          </div>
+          </div> */}
           <button
             className="navbar-toggler collapsed"
             type="button"
@@ -87,7 +87,7 @@ function Navbar() {
               >
                 Get Started
               </Link>
-              <div
+             {/*  <div
                 className="px-2 js-darkmode-btn d-flex align-items-center justify-content-center"
                 title="Toggle dark mode"
               >
@@ -104,7 +104,7 @@ function Navbar() {
                   className="dark_mode_switcher"
                 />
                 <label htmlFor="something" className="tab-btn"></label>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
