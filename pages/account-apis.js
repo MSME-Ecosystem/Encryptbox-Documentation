@@ -277,7 +277,7 @@ export default function Account() {
                           <p>
                             Purpose: To view details of an entity registered
                             with
-                            <strong>EncryptBox</strong>
+                            <strong>&nbsp;EncryptBox</strong>
                           </p>
                         </div>
                         <div className="shortcode_title">
@@ -352,7 +352,7 @@ export default function Account() {
                           </h4>
                           <p>
                             Purpose: To fetch the details of an user affiliated
-                            with your platform using our
+                            with your platform using &nbsp;
                             <strong>EncryptBox</strong> API
                           </p>
                         </div>
