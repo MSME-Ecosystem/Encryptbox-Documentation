@@ -176,9 +176,9 @@ export default function Crypto() {
                             </p>
                             <p>
                               Note: You can only fetch the sell price of our
-                              supported Crypto currencies. This can be achieve
-                              by passing the coin name to the
-                              <code>&quot;coin_name&quot;</code> payload
+                              supported Crypto currencies. This can be achieved
+                              by passing the coin name to the 
+                              <code>&nbsp;&quot;coin_name&quot;</code> payload
                             </p>
                           </div>
                           <div className="shortcode_title">

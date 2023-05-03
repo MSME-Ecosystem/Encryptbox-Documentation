@@ -45,7 +45,7 @@ export default function Home() {
                       For the purpose of product integration and testing on the
                       Binance Smart Chain testnet, EncryptBox offers a test
                       environment. This environment provides developers with API
-                      keys and addresses to facilitate experimentation. It&apos;s
+                      keys and addresses to facilitate experimentation. It is
                       worth noting that the API keys and addresses used in the
                       test environment are distinct from those used in the live
                       environment.
@@ -56,7 +56,7 @@ export default function Home() {
                       successfully conducted on the test environment, merchants
                       can proceed to use it in the production environment to
                       receive actual funds on the Binance Smart Chain mainnet.
-                      It&apos;s important to note that the API keys and addresses
+                      It is important to note that the API keys and addresses
                       used in the live environment are different from those used
                       in the test environment.
                     </p>

@@ -208,7 +208,7 @@ export default function Account() {
                     <p>
                       <span>
                         The EncryptBox User endpoints can be used to create
-                        users and also have access to user details
+                        users and also have access to user details. &nbsp;
                       </span>
                       <span>
                         The EncryptBox platform includes server-side API for
@@ -299,7 +299,7 @@ export default function Account() {
                       <div className="shortcode_title">
                         <h4 className="s_title">View Personal Details</h4>
                         <p>
-                          Purpose: To view details of an entity registered with
+                          Purpose: To view details of an entity registered with &nbsp;
                           <strong>EncryptBox</strong>
                         </p>
                       </div>

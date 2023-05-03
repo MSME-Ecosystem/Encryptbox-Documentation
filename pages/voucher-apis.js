@@ -249,7 +249,7 @@ export default function Voucher() {
                         <div className="shortcode_title">
                           <h4 className="s_title">Get Balance</h4>
                           <p>
-                            Purpose: To view available voucher credit a users
+                            Purpose: To view available voucher credit users
                             have in their voucher wallet
                           </p>
                         </div>
