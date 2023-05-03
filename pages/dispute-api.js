@@ -4,27 +4,9 @@ import Sidebar from "@/components/Layout/sidebar";
 import Script from "next/script";
 import Code from "@/components/Code";
 import Feedback from "@/components/Feedback";
+import { dispute, disputeEp } from "@/components/endpoints";
 
-export default function Dispute() {
-  const dispute = ` {
-    statuscode: "202",
-    message: "Dispute sent",
-  }`;
-  const disputeEp = `axios.post(
-    "https://dashboard.encryptbox.co.uk/api/v1/live/getbuyrate",
-    {
-      dispute_file: "mjerepro.png",
-      topic: "Transactional Errors",
-      message: "I was trying to send money but the transaction was not successful",
-      ticket_no: "0000",
-    },
-    {
-      headers: {
-        token: "putyourpublickeyhere",
-        "Content-Type": "application/json",
-      },
-    }
-  )`;
+export default function Dispute() { 
 
   return (
     <>
@@ -119,7 +101,7 @@ export default function Dispute() {
               </div>
             </div>
             <div className="col-lg-4 col-md-4">
-              <div className=" " id="sample-getbuyrate ">
+              <div className="sample-code-sticky" id="sample-dispute">
                 <div className="shortcode_title">
                   <div
                     className="alert media message_alert fade show"

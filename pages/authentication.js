@@ -99,7 +99,6 @@ export default function Home() {
 
                   </div>
                 </article>
-
                 <Feedback />
               </div>
             </div>

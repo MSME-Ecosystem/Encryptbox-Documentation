@@ -9476,7 +9476,8 @@ body.doc.test.remove .shortcode_info h4 {
 }
 
 .shortcode_info {
-  padding-top: 60px;
+  padding-top: 20px;
+  border-top: solid 1px #dfdbdb;
 }
 .shortcode_info h4 {
   font-size: 22px;
@@ -16570,7 +16571,7 @@ body.body_dark .sticky_menu .menu_one .menu > .nav-item .nav-link, body.body_dar
   position: -webkit-sticky;
   position: sticky;
   top: 20vh;
-  z-index: 1020; /* ensure the element is above other elements */
+    
 }
 
  
