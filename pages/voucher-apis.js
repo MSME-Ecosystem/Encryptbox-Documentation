@@ -4,40 +4,73 @@ import Sidebar from "@/components/Layout/sidebar";
 import Script from "next/script";
 import Code from "@/components/Code";
 import Feedback from "@/components/Feedback";
-import { Waypoint } from "react-waypoint";
-import { getbalance, getbalanceEp, sell, sellEp, transfer, transferEp } from "@/components/endpoints";
+import {
+  getbalance,
+  getbalanceEp,
+  sell,
+  sellEp,
+  transfer,
+  transferEp,
+} from "@/components/endpoints";
 
-export default function Voucher() {  
+export default function Voucher() {
   const [isSampleBalanceActive, setIsSampleBalanceActive] = useState(false);
   const [isSampleTransferActive, setIsSampleTransferActive] = useState(false);
   const [isSampleSellActive, setIsSampleSellActive] = useState(false);
 
-  const handleWaypointEnter = (id) => {
-    if (id === "sample-getBalance") {
-      setIsSampleBalanceActive(true);
-      setIsSampleTransferActive(false);
-      setIsSampleSellActive(false);
-    } else if (id === "sample-transferVoucher") {
-      setIsSampleBalanceActive(false);
-      setIsSampleTransferActive(true);
-      setIsSampleSellActive(false);
-    } else if (id === "sample-sellVoucher") {
-      setIsSampleBalanceActive(false);
-      setIsSampleTransferActive(false);
-      setIsSampleSellActive(true);
-    } else {
-      setIsSampleBalanceActive(false);
-      setIsSampleTransferActive(false);
-      setIsSampleSellActive(false);
-    }
-  };
+  const __getBalanceRef = useRef(null);
+  const __sellVoucher = useRef(null);
+  const __transferVoucher = useRef(null);
 
-  const handleWaypointLeave = (id) => {
-    // console.log("LeaveID: ", id);
-    // setIsWaypointActive(false);
-    // const myOtherDiv = document.getElementById(id);
-    //  myOtherDiv.classList.remove("sticky-top");
-  };
+  useEffect(() => {
+    const __getBalanceSection = __getBalanceRef.current;
+    const __sellVoucherSection = __sellVoucher.current;
+    const __transferVoucherSection = __transferVoucher.current;
+
+    const handleScroll = () => {
+      if (
+        __getBalanceSection &&
+        __sellVoucherSection &&
+        __transferVoucherSection
+      ) {
+        const getBalanceOffset = __getBalanceRef.current.offsetTop;
+        const sellVoucherOffset = __sellVoucher.current.offsetTop;
+        const transferVoucherOffset = __transferVoucher.current.offsetTop;
+
+        const scrollPosition = window.scrollY + 50;
+
+        if (
+          (scrollPosition <= getBalanceOffset ||
+            scrollPosition >= getBalanceOffset) &&
+          scrollPosition < transferVoucherOffset
+        ) {
+          setIsSampleBalanceActive(true);
+          setIsSampleTransferActive(false);
+          setIsSampleSellActive(false);
+        } else if (
+          scrollPosition >= transferVoucherOffset &&
+          scrollPosition < sellVoucherOffset
+        ) {
+          setIsSampleBalanceActive(false);
+          setIsSampleTransferActive(true);
+          setIsSampleSellActive(false);
+        } else if (scrollPosition >= sellVoucherOffset) {
+          setIsSampleBalanceActive(false);
+          setIsSampleTransferActive(false);
+          setIsSampleSellActive(true);
+        } else {
+          setIsSampleBalanceActive(false);
+          setIsSampleTransferActive(false);
+          setIsSampleSellActive(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  
   return (
     <>
       <section
@@ -67,252 +100,235 @@ export default function Voucher() {
                     </p>
 
                     {/* Get Balance */}
-                    <Waypoint
-                      onEnter={() => handleWaypointEnter("sample-getBalance")}
-                      onLeave={() => handleWaypointLeave("sample-getBalance")}
-                    >
-                      <div className="shortcode_info pt-0" id="getBalance">
-                        <div className="shortcode_title">
-                          <h4 className="s_title">Get Balance</h4>
-                          <p>
-                            Purpose: To view available voucher credit users
-                            have in their voucher wallet
-                          </p>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Request Details
-                          </h4>
-                          <div
-                            className="alert media message_alert fade show"
-                            role="alert"
-                          >
-                            <div className="media-body">
-                              <h5>Request URL</h5>
-                              <p>
-                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                                environment{"}"}/getbalance
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Header
-                          </h4>
-                          <div
-                            className="alert media message_alert fade show"
-                            role="alert"
-                          >
-                            <div className="media-body">
-                              <span>
-                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <blockquote className="media notice notice-success">
-                          <div className="media-body">
-                            <h5>Note</h5>
-                            <ul>
-                              <li>
-                                <p>
-                                  You can only fetch the balance of one user at
-                                  a time
-                                </p>
-                              </li>
-                              <li>
-                                <p>
-                                  Refer to
-                                  <a href="/account#userDetails">
-                                    User details API
-                                  </a>
-                                  to fetch more information about a user
-                                </p>
-                              </li>
-                            </ul>
-                          </div>
-                        </blockquote>
-                        <div className="code_item">
-                          <h4 className="c_head load-order-2" id="inline">
-                            Success Sample
-                          </h4>
-                          <Code code={getbalance} language="json"></Code>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Sample Response Codes
-                          </h4>
-                          <div className="alert media message_alert fade show">
-                            <div className="media-body">
-                              <p>202</p>
-                              <span>Balance fetched successfully</span>
-                            </div>
-                          </div>
-                          <div className="alert media message_alert alert-info fade show">
-                            <div className="media-body">
-                              <h5 className="m-0">404</h5>
-                              <p>Customer doesn&apos;t exist</p>
-                            </div>
-                          </div>
-                          <div className="alert media message_alert alert-info fade show">
-                            <div className="media-body">
-                              <h5 className="m-0">405</h5>
-                              <p>Unauthorized Request</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Waypoint>
-                    <Waypoint
-                      onEnter={() =>
-                        handleWaypointEnter("sample-transferVoucher")
-                      }
-                      onLeave={() =>
-                        handleWaypointLeave("sample-transferVoucher")
-                      }
-                    >
-                      <div className="shortcode_info" id="transferVoucher">
-                        <div className="shortcode_title">
-                          <h4 className="s_title">Transfer Voucher</h4>
-                          <p>
-                            Purpose: To transfer voucher from one user to
-                            another
-                          </p>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Request Details
-                          </h4>
-                          <div
-                            className="alert media message_alert fade show"
-                            role="alert"
-                          >
-                            <div className="media-body">
-                              <h5>Request URL</h5>
-                              <p>
-                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                                environment{"}"}/transfer
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Header
-                          </h4>
-                          <div
-                            className="alert media message_alert fade show"
-                            role="alert"
-                          >
-                            <div className="media-body">
-                              <span>
-                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="code_item">
-                          <h4 className="c_head load-order-2" id="inline">
-                            Success Sample
-                          </h4>
-                          <Code code={transfer} language="json"></Code>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Sample Response Codes
-                          </h4>
-                          <div className="alert media message_alert fade show">
-                            <div className="media-body">
-                              <p>202</p>
-                              <span>Transfer Successful</span>
-                            </div>
-                          </div>
-                          <div className="alert media message_alert alert-info fade show">
-                            <div className="media-body">
-                              <h5 className="m-0">406</h5>
-                              <p>Account Doesn&apos;t exist</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Waypoint>
 
-                    <Waypoint
-                      onEnter={() => handleWaypointEnter("sample-sellVoucher")}
-                      onLeave={() => handleWaypointLeave("sample-sellVoucher")}
-                    >
-                      <div className="shortcode_info pt-0" id="sellVoucher">
-                        <div className="shortcode_title">
-                          <h4 className="s_title">Sell Voucher</h4>
-                          <p>
-                            Purpose: To sell voucher in exchange for Fiat
-                            currency
-                          </p>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Request Details
-                          </h4>
-                          <div
-                            className="alert media message_alert fade show"
-                            role="alert"
-                          >
-                            <div className="media-body">
-                              <h5>Request URL</h5>
-                              <p>
-                                {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
-                                environment{"}"}/sell
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Header
-                          </h4>
-                          <div
-                            className="alert media message_alert fade show"
-                            role="alert"
-                          >
-                            <div className="media-body">
-                              <span>
-                                token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="code_item">
-                          <h4 className="c_head load-order-2" id="inline">
-                            Success Sample
-                          </h4>
-                          <Code code={sell} language="json"></Code>
-                        </div>
-                        <div className="shortcode_title">
-                          <h4 className="s_title" id="tab2">
-                            Sample Response Codes
-                          </h4>
-                          <div className="alert media message_alert fade show">
-                            <div className="media-body">
-                              <p>202</p>
-                              <span>Balance fetched successfully</span>
-                            </div>
-                          </div>
-                          <div className="alert media message_alert alert-info fade show">
-                            <div className="media-body">
-                              <h5 className="m-0">404</h5>
-                              <p>Customer doesn&apos;t exist</p>
-                            </div>
-                          </div>
-                          <div className="alert media message_alert alert-info fade show">
-                            <div className="media-body">
-                              <h5 className="m-0">405</h5>
-                              <p>Unauthorized Request</p>
-                            </div>
+                    <div className="shortcode_info pt-0" ref={__getBalanceRef}>
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Get Balance</h4>
+                        <p>
+                          Purpose: To view available voucher credit users have
+                          in their voucher wallet
+                        </p>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                              environment{"}"}/getbalance
+                            </p>
                           </div>
                         </div>
                       </div>
-                    </Waypoint>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <span>
+                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <blockquote className="media notice notice-success">
+                        <div className="media-body">
+                          <h5>Note</h5>
+                          <ul>
+                            <li>
+                              <p>
+                                You can only fetch the balance of one user at a
+                                time
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                Refer to
+                                <a href="/account#userDetails">
+                                  User details API
+                                </a>
+                                to fetch more information about a user
+                              </p>
+                            </li>
+                          </ul>
+                        </div>
+                      </blockquote>
+                      <div className="code_item">
+                        <h4 className="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+                        <Code code={getbalance} language="json"></Code>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div className="alert media message_alert fade show">
+                          <div className="media-body">
+                            <p>202</p>
+                            <span>Balance fetched successfully</span>
+                          </div>
+                        </div>
+                        <div className="alert media message_alert alert-info fade show">
+                          <div className="media-body">
+                            <h5 className="m-0">404</h5>
+                            <p>Customer doesn&apos;t exist</p>
+                          </div>
+                        </div>
+                        <div className="alert media message_alert alert-info fade show">
+                          <div className="media-body">
+                            <h5 className="m-0">405</h5>
+                            <p>Unauthorized Request</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Transfer Voucher */}
+                    <div className="shortcode_info" ref={__transferVoucher}>
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Transfer Voucher</h4>
+                        <p>
+                          Purpose: To transfer voucher from one user to another
+                        </p>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                              environment{"}"}/transfer
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <span>
+                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="code_item">
+                        <h4 className="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+                        <Code code={transfer} language="json"></Code>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div className="alert media message_alert fade show">
+                          <div className="media-body">
+                            <p>202</p>
+                            <span>Transfer Successful</span>
+                          </div>
+                        </div>
+                        <div className="alert media message_alert alert-info fade show">
+                          <div className="media-body">
+                            <h5 className="m-0">406</h5>
+                            <p>Account Doesn&apos;t exist</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Sell Voucher */}
+                    <div className="shortcode_info pt-0" ref={__sellVoucher}>
+                      <div className="shortcode_title">
+                        <h4 className="s_title">Sell Voucher</h4>
+                        <p>
+                          Purpose: To sell voucher in exchange for Fiat currency
+                        </p>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Request Details
+                        </h4>
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <h5>Request URL</h5>
+                            <p>
+                              {"{"}api-domain{"}"}/api/{"{"}version{"}"}/{"{"}
+                              environment{"}"}/sell
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Header
+                        </h4>
+                        <div
+                          className="alert media message_alert fade show"
+                          role="alert"
+                        >
+                          <div className="media-body">
+                            <span>
+                              token: 1ffg4XXXXXXXXXXXXXXXXXXXXXXXX0jMnH
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="code_item">
+                        <h4 className="c_head load-order-2" id="inline">
+                          Success Sample
+                        </h4>
+                        <Code code={sell} language="json"></Code>
+                      </div>
+                      <div className="shortcode_title">
+                        <h4 className="s_title" id="tab2">
+                          Sample Response Codes
+                        </h4>
+                        <div className="alert media message_alert fade show">
+                          <div className="media-body">
+                            <p>202</p>
+                            <span>Balance fetched successfully</span>
+                          </div>
+                        </div>
+                        <div className="alert media message_alert alert-info fade show">
+                          <div className="media-body">
+                            <h5 className="m-0">404</h5>
+                            <p>Customer doesn&apos;t exist</p>
+                          </div>
+                        </div>
+                        <div className="alert media message_alert alert-info fade show">
+                          <div className="media-body">
+                            <h5 className="m-0">405</h5>
+                            <p>Unauthorized Request</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </article>
                 <Feedback />
@@ -404,47 +420,7 @@ export default function Voucher() {
 Voucher.getLayout = function getLayout(page) {
   return (
     <>
-      <HomeLayout>{page}</HomeLayout>
-      <Script src="/js/jquery-3.5.1.min.js" id="jquery"></Script>
-      <Script src="/assets/bootstrap/js/popper.min.js" id="popper"></Script>
-      <Script
-        src="/assets/bootstrap/js/bootstrap.min.js"
-        id="boostrapmin"
-      ></Script>
-      <Script
-        src="/assets/bootstrap/js/bootstrap-select.min.js"
-        id="boottrapselect"
-      ></Script>
-      <Script src="/js/parallaxie.js" id="paralaxie"></Script>
-      <Script src="/js/TweenMax.min.js" id="TweenMax"></Script>
-      <Script src="/js/anchor.js" id="anchor"></Script>
-      <Script src="/assets/wow/wow.min.js" id="wow"></Script>
-      <Script
-        src="/assets/niceselectpicker/jquery.nice-select.min.js"
-        id="niceselect"
-      ></Script>
-      <Script
-        src="/assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"
-        id="customcrollbar"
-      ></Script>
-      <Script
-        src="/assets/magnify-pop/jquery.magnific-popup.min.js"
-        id="popup"
-      ></Script>
-      <Script
-        src="/assets/tooltipster/js/tooltipster.bundle.min.js"
-        id="tooltipster"
-      ></Script>
-      <Script
-        src="/assets/font-size/js/rv-jquery-fontsize-2.0.3.js"
-        id="rvjquery"
-      ></Script>
-      <Script
-        src="https://unpkg.com/ionicons@latest/dist/ionicons.js"
-        id="ionicons"
-      ></Script>
-      <Script src="/js/onpage-menu.js" id="onPageMenu"></Script>
-      <Script src="/js/main.js" id="main"></Script>
+      <HomeLayout>{page}</HomeLayout>     
     </>
   );
 };

@@ -442,7 +442,7 @@
 
         if (mainArray.length !== navArray.length) {
           console.warn(
-            "multipleSwiperSlides: Number of main slides and nav slides is different. Expect incorrect behaviour."
+            "multipleSwiperSlidesExpect incorrect behaviour."
           );
         }
 
@@ -892,142 +892,9 @@
     // e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "300");
   });
+   
 
-  /**
-   * OS select dropdown
-   */
-  /*--------------- niceSelect js--------*/
-  function select() {
-    if ($(".custom-select, .nice_select").length) {
-      $(".custom-select, .nice_select").niceSelect();
-    }
-    if ($("#mySelect").length) {
-      $("#mySelect").selectpicker();
-    }
-  }
-  select();
-
-  if ($("#mySelect").val() == "windows") {
-    $(".windows").show();
-  } else {
-    $(".windows").hide();
-  }
-
-  if ($("#mySelect").val() == "ios") {
-    $(".ios").show();
-  } else {
-    $(".ios").hide();
-  }
-
-  $("#mySelect").change(function () {
-    if ($("#mySelect").val() == "windows") {
-      $(".windows").show();
-    } else {
-      $(".windows").hide();
-    }
-    if ($("#mySelect").val() == "ios") {
-      $(".ios").show();
-    } else {
-      $(".ios").hide();
-    }
-  });
-
-  if ($(".doc_testimonial_area").length) {
-    $(".doc_testimonial_slider").slick({
-      autoplay: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplaySpeed: 2000,
-      speed: 1000,
-      dots: true,
-      arrows: false,
-      asNavFor: ".doc_img_slider",
-    });
-    $(".doc_img_slider").slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      asNavFor: ".doc_testimonial_slider",
-      arrows: false,
-      fade: true,
-      focusOnSelect: true,
-    });
-  }
-
-  $(".header_search_keyword ul li a").on("click", function (e) {
-    // e.preventDefault();
-    var content = $(this).text();
-    $("#searchbox").val(content).focus();
-    $(".input-wrapper input")
-      .parent()
-      .find(".header_search_form_panel")
-      .first()
-      .slideDown(300);
-  });
-  $(".input-wrapper input").focusout(function () {
-    $(this).parent().find(".header_search_form_panel").first().slideUp(300);
-  });
-
-  /*-------------------------------------------------------------------------------
-	  MAILCHIMP js
-	-------------------------------------------------------------------------------*/
-  if ($(".mailchimp").length > 0) {
-    $(".mailchimp").ajaxChimp({
-      callback: mailchimpCallback,
-      url:
-        "http://droitlab.us15.list-manage.com/subscribe/post?u=0fa954b1e090d4269d21abef5&id=a80b5aedb0", //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".
-    });
-  }
-  if ($(".mailchimp_two").length > 0) {
-    $(".mailchimp_two").ajaxChimp({
-      callback: mailchimpCallback,
-      url:
-        "https://droitthemes.us19.list-manage.com/subscribe/post?u=5d334217e146b083fe74171bf&amp;id=0e45662e8c", //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".
-    });
-  }
-  $(".memail").on("focus", function () {
-    $(".mchimp-errmessage").fadeOut();
-    $(".mchimp-sucmessage").fadeOut();
-  });
-  $(".memail").on("keydown", function () {
-    $(".mchimp-errmessage").fadeOut();
-    $(".mchimp-sucmessage").fadeOut();
-  });
-  $(".memail").on("click", function () {
-    $(".memail").val("");
-  });
-
-  function mailchimpCallback(resp) {
-    if (resp.result === "success") {
-      $(".mchimp-errmessage").html(resp.msg).fadeIn(1000);
-      $(".mchimp-sucmessage").fadeOut(500);
-    } else if (resp.result === "error") {
-      $(".mchimp-errmessage").html(resp.msg).fadeIn(1000);
-    }
-  }
-
-  /**
-   * Doc : On this page
-   * @param str
-   * @returns {string}
-   */
-  var slug = function(str) {
-    str = str.replace(/^\s+|\s+$/g, ''); // trim
-    str = str.toLowerCase();
-
-    // remove accents, swap ñ for n, etc
-    var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
-    var to   = "aaaaaeeeeeiiiiooooouuuunc------";
-    for (var i=0, l=from.length ; i<l ; i++) {
-      str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-    }
-
-    str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-        .replace(/\s+/g, '-') // collapse whitespace and replace by -
-        .replace(/-+/g, '-'); // collapse dashes
-
-    return str;
-  }
-
+  
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }

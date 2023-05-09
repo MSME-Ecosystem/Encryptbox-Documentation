@@ -113,23 +113,7 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   return (
     <>
-      <HomeLayout>{page}</HomeLayout>
-      <Script src="/js/jquery-3.5.1.min.js" id="jquery" strategy="beforeInteractive"></Script> 
-      {/* <Script src="/assets/bootstrap/js/popper.min.js" id="popper" strategy="beforeInteractive"></Script>{/*  */}
-      {/* <Script src="/assets/bootstrap/js/bootstrap.min.js" id="boostrapmin" strategy="beforeInteractive"></Script> */}
-      {/* <Script src="/assets/bootstrap/js/bootstrap-select.min.js" id="boottrapselect" strategy="beforeInteractive"></Script> */} 
-      <Script src="/js/parallaxie.js" id="paralaxie" strategy="beforeInteractive"></Script>
-      <Script src="/js/TweenMax.min.js" id="TweenMax" strategy="beforeInteractive"></Script>
-      <Script src="/js/anchor.js" id="anchor" strategy="beforeInteractive"></Script>
-      <Script src="/assets/wow/wow.min.js" id="wow" strategy="beforeInteractive"></Script> 
-      <Script src="/assets/niceselectpicker/jquery.nice-select.min.js" id="niceselect" strategy="beforeInteractive"></Script>
-      <Script src="/assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js" id="customcrollbar" strategy="beforeInteractive"></Script>
-      <Script src="/assets/magnify-pop/jquery.magnific-popup.min.js" id="popup" strategy="beforeInteractive"></Script>
-      <Script src="/assets/tooltipster/js/tooltipster.bundle.min.js" id="tooltipster" strategy="beforeInteractive"></Script>
-      <Script src="/assets/font-size/js/rv-jquery-fontsize-2.0.3.js" id="rvjquery" strategy="beforeInteractive"></Script>
-      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js" id="ionicons" strategy="beforeInteractive"></Script>
-      <Script src="/js/onpage-menu.js" id="onPageMenu" strategy="beforeInteractive"></Script>
-      <Script src="/js/main.js" id="main" strategy="beforeInteractive"></Script>
+      <HomeLayout>{page}</HomeLayout>      
     </>
   );
 };
